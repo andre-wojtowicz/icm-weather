@@ -4,7 +4,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Ini
+namespace IcmWeather.Utils
 {
     /// <summary>
     /// Create a New INI file to store or load data

@@ -11,6 +11,21 @@
     <AssemblyName>ICM Weather</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,29 +66,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\City.cs" />
-    <Compile Include="src\ForecastModel.cs" />
-    <Compile Include="src\FormForecast.cs">
+    <Compile Include="src\Data\City.cs" />
+    <Compile Include="src\Data\ForecastModel.cs" />
+    <Compile Include="src\Forms\Forecast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\FormForecast.Designer.cs">
-      <DependentUpon>FormForecast.cs</DependentUpon>
+    <Compile Include="src\Forms\Forecast.Designer.cs">
+      <DependentUpon>Forecast.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\IniFile.cs" />
-    <Compile Include="src\Program.cs">
+    <Compile Include="src\Forms\SysTray.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="src\Forms\SysTray.Designer.cs">
+      <DependentUpon>SysTray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Utils\IniFile.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Settings.cs" />
-    <Compile Include="src\FormUserConfig.cs">
+    <Compile Include="src\Forms\UserConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\FormUserConfig.Designer.cs">
-      <DependentUpon>FormUserConfig.cs</DependentUpon>
+    <Compile Include="src\Forms\UserConfig.Designer.cs">
+      <DependentUpon>UserConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Taskbar.cs" />
-    <EmbeddedResource Include="src\FormForecast.resx">
-      <DependentUpon>FormForecast.cs</DependentUpon>
+    <Compile Include="src\Utils\Taskbar.cs" />
+    <EmbeddedResource Include="src\Forms\Forecast.resx">
+      <DependentUpon>Forecast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\SysTray.resx">
+      <DependentUpon>SysTray.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Program.resx">
       <DependentUpon>Program.cs</DependentUpon>
@@ -88,18 +109,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="src\FormUserConfig.resx">
-      <DependentUpon>FormUserConfig.cs</DependentUpon>
+    <EmbeddedResource Include="src\Forms\UserConfig.resx">
+      <DependentUpon>UserConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="res\models\coamps\base.ini" />
     <None Include="res\models\coamps\cities.csv" />
     <None Include="res\models\um\base.ini" />
@@ -107,11 +119,25 @@
     <None Include="res\user_settings.ini" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="res\icons\Gnome-Weather-Clear-48.ico" />
     <Content Include="res\icons\Gnome-Weather-Clear-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

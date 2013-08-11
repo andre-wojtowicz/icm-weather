@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IcmWeather
+namespace IcmWeather.Data
 {
     public class ForecastModel
     {

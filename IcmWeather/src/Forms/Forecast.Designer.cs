@@ -1,6 +1,6 @@
-﻿namespace IcmWeather
+﻿namespace IcmWeather.Forms
 {
-    partial class FormForecast
+    partial class Forecast
     {
         /// <summary>
         /// Required designer variable.

@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using winsharp93;
+using IcmWeather.Utils;
 
-namespace IcmWeather
+namespace IcmWeather.Forms
 {
-    public partial class FormForecast : Form
+    public partial class Forecast : Form
     {
         private Timer meteogramTimer;
 
-        public FormForecast()
+        public Forecast()
         {
             InitializeComponent();
             ResetTimerAndLoadMeteogram();
@@ -28,17 +28,17 @@ namespace IcmWeather
                 meteogramTimer.Stop();
             meteogramTimer = new Timer();
             meteogramTimer.Tick += new EventHandler(LoadMeteogram);
-            meteogramTimer.Interval = (int)FormUserConfig.RefreshRate * 60 * 1000;
+            meteogramTimer.Interval = (int)UserConfig.RefreshRate * 60 * 1000;
             LoadMeteogram(null, null); // preload image
             meteogramTimer.Start();
         }
 
         private void LoadMeteogram(object sender, EventArgs e)
         {
-            string url = FormUserConfig.Model.MeteogramUrl;
-            string x = FormUserConfig.X.ToString();
-            string y = FormUserConfig.Y.ToString();
-            string lang = FormUserConfig.Language;
+            string url = UserConfig.Model.MeteogramUrl;
+            string x = UserConfig.X.ToString();
+            string y = UserConfig.Y.ToString();
+            string lang = UserConfig.Language;
 
             url = url.Replace("{X}", x).Replace("{Y}", y).Replace("{LANG}", lang);
             pbMeteogram.Load(url);

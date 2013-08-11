@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //http://winsharp93.wordpress.com/2009/06/29/find-out-size-and-position-of-the-taskbar/
-namespace winsharp93
+namespace IcmWeather.Utils
 {
     public enum TaskbarPosition
     {

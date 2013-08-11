@@ -1,6 +1,6 @@
-﻿namespace IcmWeather
+﻿namespace IcmWeather.Forms
 {
-    partial class FormUserConfig
+    partial class UserConfig
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserConfig));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserConfig));
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.nudX = new System.Windows.Forms.NumericUpDown();

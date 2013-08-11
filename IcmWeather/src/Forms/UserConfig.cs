@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Ini;
-using System.Collections;
+using IcmWeather.Data;
+using IcmWeather.Utils;
 
-namespace IcmWeather
+namespace IcmWeather.Forms
 {
-    public partial class FormUserConfig : Form
+    public partial class UserConfig : Form
     {
         public static ForecastModel Model { get; private set; }
         public static string City { get; private set; }
@@ -50,8 +50,8 @@ namespace IcmWeather
         private const string INI_MODELBASE_KEY_METEOGRAM_URL = "meteogram_url";
 
         private const string CSV_CITIES_FILENAME = "cities.csv";
-
         private const string CSV_LANGUAGES_FILENAME = "languages.csv";
+        private const string ICM_URL = "http://www.meteo.pl";
 
         private List<ForecastModel> models = new List<ForecastModel>();
         private List<string> languages = new List<string>();
@@ -59,7 +59,7 @@ namespace IcmWeather
         public delegate void RefreshDemandedHandler();
         public event RefreshDemandedHandler RefreshDemanded;
 
-        public FormUserConfig()
+        public UserConfig()
         {
             InitializeComponent();
             Text = Assembly.GetEntryAssembly().GetName().Name + " " + Assembly.GetEntryAssembly().GetName().Version.ToString();
@@ -211,7 +211,7 @@ namespace IcmWeather
 
         private void linkLabelMeteo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Settings.Default.IcmUrl);
+            System.Diagnostics.Process.Start(ICM_URL);
         }
 
         private void cbModel_SelectedIndexChanged(object sender, EventArgs e)

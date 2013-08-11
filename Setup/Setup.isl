@@ -345,6 +345,9 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{990FC2AA-BD30-473F-9629-6A635E523EC4}</td><td>AppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{3A4D367C-CCDE-407C-B896-02AB332194D4}</td><td>ICM_WEATHER1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{BC302E5C-264E-4CEF-9DEA-A3CFB761446B}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{B4175A8A-1B0A-4E18-A633-A84E98F574D1}</td><td>MODELS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{5893A6E9-BBF5-47CD-97EA-899C28E35B89}</td><td>COAMPS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{2ACFD3E1-5711-4B8D-A629-AADF9134EC34}</td><td>UM</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1056,7 +1059,7 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>MODELS</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1139,6 +1142,7 @@
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
+		<row><td>COAMPS</td><td>MODELS</td><td>coamps</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
@@ -1155,6 +1159,7 @@
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
+		<row><td>MODELS</td><td>INSTALLDIR</td><td>models</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME</td><td>OPEN_SOURCE</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
@@ -1173,6 +1178,7 @@
 		<row><td>TARGETDIR</td><td/><td>SourceDir</td><td/><td>0</td><td/></row>
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
 		<row><td>TemplateFolder</td><td>TARGETDIR</td><td>.:ShellNew</td><td/><td>0</td><td/></row>
+		<row><td>UM</td><td>MODELS</td><td>um</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
@@ -1873,6 +1879,9 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 	</table>
 
 	<table name="File">
@@ -1887,8 +1896,13 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>base.ini</td><td>ISX_DEFAULTCOMPONENT4</td><td>base.ini</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\coamps\base.ini</td><td>1</td><td/></row>
+		<row><td>base.ini1</td><td>ISX_DEFAULTCOMPONENT5</td><td>base.ini</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\um\base.ini</td><td>1</td><td/></row>
+		<row><td>cities.csv</td><td>ISX_DEFAULTCOMPONENT4</td><td>cities.csv</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\coamps\cities.csv</td><td>1</td><td/></row>
+		<row><td>cities.csv1</td><td>ISX_DEFAULTCOMPONENT5</td><td>cities.csv</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\um\cities.csv</td><td>1</td><td/></row>
 		<row><td>icm_weather.primary_output1</td><td>ICM_Weather.Primary_output1</td><td>ICM Weather.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ICM Weather&gt;|Built</td><td>3</td><td/></row>
-		<row><td>settings.ini</td><td>ISX_DEFAULTCOMPONENT1</td><td>settings.ini</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\Desktop\IcmWeather\IcmWeather\settings.ini</td><td>1</td><td/></row>
+		<row><td>languages.csv</td><td>ISX_DEFAULTCOMPONENT2</td><td>LANGUA~1.CSV|languages.csv</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\languages.csv</td><td>1</td><td/></row>
+		<row><td>user_settings.ini</td><td>ISX_DEFAULTCOMPONENT1</td><td>USER_S~1.INI|user_settings.ini</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\user_settings.ini</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2149,6 +2163,9 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_88EB2B35_6BB0_4D80_A7D9_872CA1B92C80_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_39859B52_34DA_4CE1_BEDE_FFE864714B5E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_8A6B10AF_83FA_4D09_87AB_5EF3096BBEE8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_937DB180_A738_461F_B4B9_DFE59721AC8D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_8D944D2E_C7DB_4FF4_B4CC_D6E806932546_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_394B9BA6_DC9D_4850_AD59_F40019B8269C_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">

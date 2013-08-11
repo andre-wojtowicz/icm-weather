@@ -21,13 +21,6 @@ namespace IcmWeather
             InitializeComponent();
             ResetTimerAndLoadMeteogram();
         }
-
-        //protected override void OnLoad(EventArgs e)
-        //{
-        //    PlaceNearNotifyIcon();
-        //    
-        //    base.OnLoad(e);
-        //}
         
         public void ResetTimerAndLoadMeteogram()
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,11 @@ namespace IcmWeather
         public ushort Ymax { get; private set; }
         public string SidebarUrl { get; private set; }
         public string MeteogramUrl { get; private set; }
+        public List<City> Cities { get; private set; }
 
         public ForecastModel(string name, ushort xmin, ushort xmax, 
-            ushort ymin, ushort ymax, string sidebarUrl, string meteogramUrl)
+            ushort ymin, ushort ymax, string sidebarUrl, string meteogramUrl,
+            List<City> cities)
         {
             Name = name;
             Xmin = xmin;
@@ -26,6 +29,7 @@ namespace IcmWeather
             Ymax = ymax;
             SidebarUrl = sidebarUrl;
             MeteogramUrl = meteogramUrl;
+            Cities = cities;
         }
     }
 }

@@ -42,6 +42,9 @@
             this.labelLanguage = new System.Windows.Forms.Label();
             this.linkLabelMeteo = new System.Windows.Forms.LinkLabel();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.cbCity = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chbCustomLocation = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRefresh)).BeginInit();
@@ -51,25 +54,26 @@
             // 
             this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(82, 33);
+            this.cbModel.Location = new System.Drawing.Point(119, 34);
             this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(121, 21);
-            this.cbModel.TabIndex = 0;
+            this.cbModel.Size = new System.Drawing.Size(134, 21);
+            this.cbModel.TabIndex = 1;
             this.cbModel.SelectedIndexChanged += new System.EventHandler(this.cbModel_SelectedIndexChanged);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 175);
+            this.buttonSave.Location = new System.Drawing.Point(12, 207);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 5;
+            this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // nudX
             // 
-            this.nudX.Location = new System.Drawing.Point(82, 60);
+            this.nudX.Enabled = false;
+            this.nudX.Location = new System.Drawing.Point(119, 115);
             this.nudX.Maximum = new decimal(new int[] {
             500,
             0,
@@ -77,11 +81,12 @@
             0});
             this.nudX.Name = "nudX";
             this.nudX.Size = new System.Drawing.Size(54, 20);
-            this.nudX.TabIndex = 1;
+            this.nudX.TabIndex = 4;
             // 
             // nudY
             // 
-            this.nudY.Location = new System.Drawing.Point(83, 86);
+            this.nudY.Enabled = false;
+            this.nudY.Location = new System.Drawing.Point(198, 115);
             this.nudY.Maximum = new decimal(new int[] {
             500,
             0,
@@ -89,11 +94,11 @@
             0});
             this.nudY.Name = "nudY";
             this.nudY.Size = new System.Drawing.Size(53, 20);
-            this.nudY.TabIndex = 2;
+            this.nudY.TabIndex = 5;
             // 
             // nudRefresh
             // 
-            this.nudRefresh.Location = new System.Drawing.Point(83, 112);
+            this.nudRefresh.Location = new System.Drawing.Point(119, 141);
             this.nudRefresh.Maximum = new decimal(new int[] {
             1440,
             0,
@@ -106,7 +111,7 @@
             0});
             this.nudRefresh.Name = "nudRefresh";
             this.nudRefresh.Size = new System.Drawing.Size(53, 20);
-            this.nudRefresh.TabIndex = 3;
+            this.nudRefresh.TabIndex = 6;
             this.nudRefresh.Value = new decimal(new int[] {
             60,
             0,
@@ -119,15 +124,15 @@
             this.cbLanguage.FormattingEnabled = true;
             this.cbLanguage.Items.AddRange(new object[] {
             ""});
-            this.cbLanguage.Location = new System.Drawing.Point(82, 138);
+            this.cbLanguage.Location = new System.Drawing.Point(119, 167);
             this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(121, 21);
-            this.cbLanguage.TabIndex = 4;
+            this.cbLanguage.Size = new System.Drawing.Size(133, 21);
+            this.cbLanguage.TabIndex = 7;
             // 
             // labelModel
             // 
             this.labelModel.AutoSize = true;
-            this.labelModel.Location = new System.Drawing.Point(40, 36);
+            this.labelModel.Location = new System.Drawing.Point(78, 37);
             this.labelModel.Name = "labelModel";
             this.labelModel.Size = new System.Drawing.Size(36, 13);
             this.labelModel.TabIndex = 6;
@@ -136,7 +141,7 @@
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(62, 62);
+            this.labelX.Location = new System.Drawing.Point(100, 117);
             this.labelX.Name = "labelX";
             this.labelX.Size = new System.Drawing.Size(14, 13);
             this.labelX.TabIndex = 6;
@@ -145,7 +150,7 @@
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(62, 88);
+            this.labelY.Location = new System.Drawing.Point(179, 117);
             this.labelY.Name = "labelY";
             this.labelY.Size = new System.Drawing.Size(14, 13);
             this.labelY.TabIndex = 6;
@@ -154,7 +159,7 @@
             // labelRefresh
             // 
             this.labelRefresh.AutoSize = true;
-            this.labelRefresh.Location = new System.Drawing.Point(7, 114);
+            this.labelRefresh.Location = new System.Drawing.Point(45, 143);
             this.labelRefresh.Name = "labelRefresh";
             this.labelRefresh.Size = new System.Drawing.Size(69, 13);
             this.labelRefresh.TabIndex = 6;
@@ -163,39 +168,72 @@
             // labelLanguage
             // 
             this.labelLanguage.AutoSize = true;
-            this.labelLanguage.Location = new System.Drawing.Point(21, 141);
+            this.labelLanguage.Location = new System.Drawing.Point(7, 170);
             this.labelLanguage.Name = "labelLanguage";
-            this.labelLanguage.Size = new System.Drawing.Size(55, 13);
+            this.labelLanguage.Size = new System.Drawing.Size(107, 13);
             this.labelLanguage.TabIndex = 6;
-            this.labelLanguage.Text = "Language";
+            this.labelLanguage.Text = "Meteogram language";
             // 
             // linkLabelMeteo
             // 
             this.linkLabelMeteo.AutoSize = true;
-            this.linkLabelMeteo.Location = new System.Drawing.Point(71, 9);
+            this.linkLabelMeteo.Location = new System.Drawing.Point(92, 9);
             this.linkLabelMeteo.Name = "linkLabelMeteo";
             this.linkLabelMeteo.Size = new System.Drawing.Size(74, 13);
-            this.linkLabelMeteo.TabIndex = 7;
+            this.linkLabelMeteo.TabIndex = 0;
             this.linkLabelMeteo.TabStop = true;
             this.linkLabelMeteo.Text = "www.meteo.pl";
             this.linkLabelMeteo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMeteo_LinkClicked);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(128, 175);
+            this.buttonCancel.Location = new System.Drawing.Point(178, 207);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 8;
+            this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // cbCity
+            // 
+            this.cbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCity.FormattingEnabled = true;
+            this.cbCity.Location = new System.Drawing.Point(119, 65);
+            this.cbCity.Name = "cbCity";
+            this.cbCity.Size = new System.Drawing.Size(134, 21);
+            this.cbCity.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(90, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "City";
+            // 
+            // chbCustomLocation
+            // 
+            this.chbCustomLocation.AutoSize = true;
+            this.chbCustomLocation.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbCustomLocation.Location = new System.Drawing.Point(29, 93);
+            this.chbCustomLocation.Name = "chbCustomLocation";
+            this.chbCustomLocation.Size = new System.Drawing.Size(101, 17);
+            this.chbCustomLocation.TabIndex = 3;
+            this.chbCustomLocation.Text = "Custom location";
+            this.chbCustomLocation.UseVisualStyleBackColor = true;
+            this.chbCustomLocation.CheckedChanged += new System.EventHandler(this.chbCustomLocation_CheckedChanged);
             // 
             // FormUserConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(215, 208);
+            this.ClientSize = new System.Drawing.Size(265, 241);
             this.ControlBox = false;
+            this.Controls.Add(this.chbCustomLocation);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbCity);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.linkLabelMeteo);
             this.Controls.Add(this.labelLanguage);
@@ -214,7 +252,6 @@
             this.Name = "FormUserConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ICM Weather";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRefresh)).EndInit();
@@ -238,5 +275,8 @@
         private System.Windows.Forms.Label labelLanguage;
         private System.Windows.Forms.LinkLabel linkLabelMeteo;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox cbCity;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbCustomLocation;
     }
 }

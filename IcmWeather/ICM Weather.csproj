@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Gnome-Weather-Clear-48.ico</ApplicationIcon>
+    <ApplicationIcon>res\icons\Gnome-Weather-Clear-48.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -51,30 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ForecastModel.cs" />
-    <Compile Include="FormForecast.cs">
+    <Compile Include="src\City.cs" />
+    <Compile Include="src\ForecastModel.cs" />
+    <Compile Include="src\FormForecast.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormForecast.Designer.cs">
+    <Compile Include="src\FormForecast.Designer.cs">
       <DependentUpon>FormForecast.cs</DependentUpon>
     </Compile>
-    <Compile Include="IniFile.cs" />
-    <Compile Include="Program.cs">
+    <Compile Include="src\IniFile.cs" />
+    <Compile Include="src\Program.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="FormUserConfig.cs">
+    <Compile Include="src\Settings.cs" />
+    <Compile Include="src\FormUserConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserConfig.Designer.cs">
+    <Compile Include="src\FormUserConfig.Designer.cs">
       <DependentUpon>FormUserConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Taskbar.cs" />
-    <EmbeddedResource Include="FormForecast.resx">
+    <Compile Include="src\Taskbar.cs" />
+    <EmbeddedResource Include="src\FormForecast.resx">
       <DependentUpon>FormForecast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Program.resx">
+    <EmbeddedResource Include="src\Program.resx">
       <DependentUpon>Program.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -87,7 +88,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="FormUserConfig.resx">
+    <EmbeddedResource Include="src\FormUserConfig.resx">
       <DependentUpon>FormUserConfig.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -99,15 +100,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="res\models\coamps\base.ini" />
+    <None Include="res\models\coamps\cities.csv" />
+    <None Include="res\models\um\base.ini" />
+    <None Include="res\models\um\cities.csv" />
+    <None Include="res\user_settings.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gnome-Weather-Clear-48.ico" />
-    <Content Include="Gnome-Weather-Clear-48.png" />
+    <Content Include="res\icons\Gnome-Weather-Clear-48.ico" />
+    <Content Include="res\icons\Gnome-Weather-Clear-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo Removing old files...
+del /Q languages.csv
+rmdir /S /Q models
+rmdir /S /Q "%25APPDATA%25\$(ProjectName)"
+echo Copying new files...
+cd ..\..
+xcopy res\languages.csv $(OutDir)
+xcopy /S /I /Y res\models $(OutDir)models
+xcopy /S /I /Y res\user_settings.ini "%25APPDATA%25\$(ProjectName)"\</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

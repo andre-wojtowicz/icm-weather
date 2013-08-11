@@ -22,5 +22,14 @@ namespace IcmWeather.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.meteo.pl")]
+        public string IcmUrl {
+            get {
+                return ((string)(this["IcmUrl"]));
+            }
+        }
     }
 }

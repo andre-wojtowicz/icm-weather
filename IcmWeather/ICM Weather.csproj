@@ -70,6 +70,7 @@
     <Compile Include="FormUserConfig.Designer.cs">
       <DependentUpon>FormUserConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Taskbar.cs" />
     <EmbeddedResource Include="FormForecast.resx">
       <DependentUpon>FormForecast.cs</DependentUpon>
     </EmbeddedResource>

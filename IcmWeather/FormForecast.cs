@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using winsharp93;
+
 namespace IcmWeather
 {
     public partial class FormForecast : Form
@@ -20,13 +22,13 @@ namespace IcmWeather
             ResetTimerAndLoadMeteogram();
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            PlaceLowerRight();
-            
-            base.OnLoad(e);
-        }
-
+        //protected override void OnLoad(EventArgs e)
+        //{
+        //    PlaceNearNotifyIcon();
+        //    
+        //    base.OnLoad(e);
+        //}
+        
         public void ResetTimerAndLoadMeteogram()
         {
             if (meteogramTimer != null)
@@ -49,26 +51,59 @@ namespace IcmWeather
             pbMeteogram.Load(url);
         }
 
-        //http://stackoverflow.com/questions/15188939/form-position-on-lower-right-corner-of-the-screen
-        private void PlaceLowerRight()
+        private void PlaceNearNotifyIcon()
         {
-            //Determine "rightmost" screen
-            Screen rightmost = Screen.AllScreens[0];
-            foreach (Screen screen in Screen.AllScreens)
-            {
-                if (screen.WorkingArea.Right > rightmost.WorkingArea.Right)
-                    rightmost = screen;
-            }
+            Screen primaryScreen = Screen.PrimaryScreen;
+            Taskbar taskbar = new Taskbar();
 
-            this.Left = rightmost.WorkingArea.Right - this.Width;
-            this.Top = rightmost.WorkingArea.Bottom - this.Height;
+            switch (taskbar.Position)
+            {
+                default:
+                case TaskbarPosition.Bottom:
+                    this.Left = primaryScreen.WorkingArea.Right - this.Width;
+                    this.Top = primaryScreen.WorkingArea.Bottom - this.Height - (taskbar.AutoHide ? taskbar.Size.Height : 0);
+                    break;
+                case TaskbarPosition.Right:
+                    this.Left = primaryScreen.WorkingArea.Right - this.Width - (taskbar.AutoHide ? taskbar.Size.Width : 0);
+                    this.Top = primaryScreen.WorkingArea.Bottom - this.Height;
+                    break;
+                case TaskbarPosition.Top:
+                    this.Left = primaryScreen.WorkingArea.Right - this.Width;
+                    this.Top = primaryScreen.WorkingArea.Top + (taskbar.AutoHide ? taskbar.Size.Height : 0);;
+                    break;
+                case TaskbarPosition.Left:
+                    this.Left = primaryScreen.WorkingArea.Left + (taskbar.AutoHide ? taskbar.Size.Width : 0);;
+                    this.Top = primaryScreen.WorkingArea.Bottom - this.Height;
+                    break;
+            }
         }
 
         private void pbMeteogram_SizeChanged(object sender, EventArgs e)
         {
-            Width = pbMeteogram.Width + 5;
-            Height = pbMeteogram.Height + 5;
-            PlaceLowerRight();
+            Width = pbMeteogram.Width + SystemInformation.FrameBorderSize.Width;
+            Height = pbMeteogram.Height + SystemInformation.FrameBorderSize.Width;
+            PlaceNearNotifyIcon();
+        }
+
+        private void FormForecast_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+                PlaceNearNotifyIcon();
+        }
+
+        private void pbMeteogram_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+        }
+
+        private void FormForecast_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+        }
+
+        private void FormForecast_Deactivate(object sender, EventArgs e)
+        {
+            Visible = false;
         }
     }
 }

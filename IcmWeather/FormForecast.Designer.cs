@@ -41,11 +41,12 @@
             this.pbMeteogram.TabIndex = 0;
             this.pbMeteogram.TabStop = false;
             this.pbMeteogram.SizeChanged += new System.EventHandler(this.pbMeteogram_SizeChanged);
+            this.pbMeteogram.Click += new System.EventHandler(this.pbMeteogram_Click);
             // 
             // FormForecast
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(671, 234);
+            this.ClientSize = new System.Drawing.Size(667, 230);
             this.ControlBox = false;
             this.Controls.Add(this.pbMeteogram);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -55,7 +56,9 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.TopMost = true;
+            this.Deactivate += new System.EventHandler(this.FormForecast_Deactivate);
+            this.VisibleChanged += new System.EventHandler(this.FormForecast_VisibleChanged);
+            this.Click += new System.EventHandler(this.FormForecast_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbMeteogram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

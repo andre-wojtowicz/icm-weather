@@ -5,43 +5,50 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using IcmWeather.Utils;
+using IcmWeather.Data;
+using IcmWeather.Properties;
 
 namespace IcmWeather.Forms
 {
     public partial class Forecast : Form
     {
-        private Timer meteogramTimer;
+        private ForecastHelper forecastHelper;
+        private static int _LastClosingTick = 0;
+        public static int LastClosingTick
+        {
+            get { return _LastClosingTick; }
+            private set { _LastClosingTick = value; }
+        }
 
-        public Forecast()
+        public Forecast(ForecastHelper _forecastHelper)
         {
             InitializeComponent();
-            ResetTimerAndLoadMeteogram();
-        }
-        
-        public void ResetTimerAndLoadMeteogram()
-        {
-            if (meteogramTimer != null)
-                meteogramTimer.Stop();
-            meteogramTimer = new Timer();
-            meteogramTimer.Tick += new EventHandler(LoadMeteogram);
-            meteogramTimer.Interval = (int)UserConfig.RefreshRate * 60 * 1000;
-            LoadMeteogram(null, null); // preload image
-            meteogramTimer.Start();
+
+            forecastHelper = _forecastHelper;
+            forecastHelper.MeteogramDownloaded += new ForecastHelper.MeteogramDownloadedHandler(LoadMeteogram);
+
+            if (_forecastHelper.Meteogram != null)
+                LoadMeteogram();
+            else
+                LoadTmpImage();
+
+            PlaceNearNotifyIcon();
         }
 
-        private void LoadMeteogram(object sender, EventArgs e)
+        public void LoadMeteogram()
         {
-            string url = UserConfig.Model.MeteogramUrl;
-            string x = UserConfig.X.ToString();
-            string y = UserConfig.Y.ToString();
-            string lang = UserConfig.Language;
+            if (pbMeteogram.InvokeRequired)
+                pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
+            else
+                pbMeteogram.Image = forecastHelper.Meteogram;
+        }
 
-            url = url.Replace("{X}", x).Replace("{Y}", y).Replace("{LANG}", lang);
-            pbMeteogram.Load(url);
+        public void LoadTmpImage()
+        {
+            //pbMeteogram.Image = Resources.loading;
         }
 
         private void PlaceNearNotifyIcon()
@@ -73,30 +80,32 @@ namespace IcmWeather.Forms
 
         private void pbMeteogram_SizeChanged(object sender, EventArgs e)
         {
-            Width = pbMeteogram.Width + SystemInformation.FrameBorderSize.Width;
-            Height = pbMeteogram.Height + SystemInformation.FrameBorderSize.Width;
+            Width  = pbMeteogram.Width  + SystemInformation.FrameBorderSize.Width;
+            Height = pbMeteogram.Height + SystemInformation.FrameBorderSize.Height;
             PlaceNearNotifyIcon();
-        }
-
-        private void FormForecast_VisibleChanged(object sender, EventArgs e)
-        {
-            if (Visible)
-                PlaceNearNotifyIcon();
         }
 
         private void pbMeteogram_Click(object sender, EventArgs e)
         {
-            Visible = false;
+            Close();
         }
 
         private void FormForecast_Click(object sender, EventArgs e)
         {
-            Visible = false;
+            Close();
         }
 
         private void FormForecast_Deactivate(object sender, EventArgs e)
         {
-            Visible = false;
+            Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            forecastHelper.MeteogramDownloaded -= LoadMeteogram;
+            LastClosingTick = Environment.TickCount;
         }
     }
 }

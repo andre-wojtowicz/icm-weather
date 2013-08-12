@@ -34,30 +34,32 @@
             // 
             // pbMeteogram
             // 
+            this.pbMeteogram.InitialImage = null;
             this.pbMeteogram.Location = new System.Drawing.Point(0, 0);
+            this.pbMeteogram.Margin = new System.Windows.Forms.Padding(0);
             this.pbMeteogram.Name = "pbMeteogram";
-            this.pbMeteogram.Size = new System.Drawing.Size(100, 50);
+            this.pbMeteogram.Size = new System.Drawing.Size(20, 20);
             this.pbMeteogram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbMeteogram.TabIndex = 0;
             this.pbMeteogram.TabStop = false;
             this.pbMeteogram.SizeChanged += new System.EventHandler(this.pbMeteogram_SizeChanged);
             this.pbMeteogram.Click += new System.EventHandler(this.pbMeteogram_Click);
             // 
-            // FormForecast
+            // Forecast
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(667, 230);
+            this.ClientSize = new System.Drawing.Size(34, 34);
             this.ControlBox = false;
             this.Controls.Add(this.pbMeteogram);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormForecast";
+            this.Name = "Forecast";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.TopMost = true;
             this.Deactivate += new System.EventHandler(this.FormForecast_Deactivate);
-            this.VisibleChanged += new System.EventHandler(this.FormForecast_VisibleChanged);
             this.Click += new System.EventHandler(this.FormForecast_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbMeteogram)).EndInit();
             this.ResumeLayout(false);

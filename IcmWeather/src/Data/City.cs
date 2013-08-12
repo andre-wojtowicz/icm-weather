@@ -11,10 +11,10 @@ namespace IcmWeather.Data
         public Tuple<ushort, ushort> Location { get; private set; }
         public string Name { get; private set; }
 
-        public City(Tuple<ushort, ushort> location, string name)
+        public City(Tuple<ushort, ushort> _location, string _name)
         {
-            Location = location;
-            Name = name;
+            Location = _location;
+            Name = _name;
         }
     }
 }

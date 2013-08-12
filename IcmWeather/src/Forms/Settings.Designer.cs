@@ -1,6 +1,6 @@
 ﻿namespace IcmWeather.Forms
 {
-    partial class UserConfig
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserConfig));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.nudX = new System.Windows.Forms.NumericUpDown();
             this.nudY = new System.Windows.Forms.NumericUpDown();
             this.nudRefresh = new System.Windows.Forms.NumericUpDown();
-            this.cbLanguage = new System.Windows.Forms.ComboBox();
+            this.cbMeteogramLanguage = new System.Windows.Forms.ComboBox();
             this.labelModel = new System.Windows.Forms.Label();
             this.labelX = new System.Windows.Forms.Label();
             this.labelY = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             0,
             0});
             this.nudRefresh.Minimum = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             0});
@@ -118,16 +118,16 @@
             0,
             0});
             // 
-            // cbLanguage
+            // cbMeteogramLanguage
             // 
-            this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanguage.FormattingEnabled = true;
-            this.cbLanguage.Items.AddRange(new object[] {
+            this.cbMeteogramLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMeteogramLanguage.FormattingEnabled = true;
+            this.cbMeteogramLanguage.Items.AddRange(new object[] {
             ""});
-            this.cbLanguage.Location = new System.Drawing.Point(119, 167);
-            this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(133, 21);
-            this.cbLanguage.TabIndex = 7;
+            this.cbMeteogramLanguage.Location = new System.Drawing.Point(119, 167);
+            this.cbMeteogramLanguage.Name = "cbMeteogramLanguage";
+            this.cbMeteogramLanguage.Size = new System.Drawing.Size(133, 21);
+            this.cbMeteogramLanguage.TabIndex = 7;
             // 
             // labelModel
             // 
@@ -225,7 +225,7 @@
             this.chbCustomLocation.UseVisualStyleBackColor = true;
             this.chbCustomLocation.CheckedChanged += new System.EventHandler(this.chbCustomLocation_CheckedChanged);
             // 
-            // FormUserConfig
+            // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -241,7 +241,7 @@
             this.Controls.Add(this.labelY);
             this.Controls.Add(this.labelX);
             this.Controls.Add(this.labelModel);
-            this.Controls.Add(this.cbLanguage);
+            this.Controls.Add(this.cbMeteogramLanguage);
             this.Controls.Add(this.nudRefresh);
             this.Controls.Add(this.nudY);
             this.Controls.Add(this.nudX);
@@ -249,7 +249,7 @@
             this.Controls.Add(this.cbModel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormUserConfig";
+            this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ICM Weather";
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).EndInit();
@@ -267,7 +267,7 @@
         private System.Windows.Forms.NumericUpDown nudX;
         private System.Windows.Forms.NumericUpDown nudY;
         private System.Windows.Forms.NumericUpDown nudRefresh;
-        private System.Windows.Forms.ComboBox cbLanguage;
+        private System.Windows.Forms.ComboBox cbMeteogramLanguage;
         private System.Windows.Forms.Label labelModel;
         private System.Windows.Forms.Label labelX;
         private System.Windows.Forms.Label labelY;

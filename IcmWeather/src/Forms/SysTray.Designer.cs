@@ -37,7 +37,7 @@
             // 
             this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
             this.trayIcon.Visible = true;
-            this.trayIcon.Click += new System.EventHandler(this.trayIcon_MouseClick);
+            this.trayIcon.Click += new System.EventHandler(this.ShowForecast);
             // 
             // SysTray
             // 

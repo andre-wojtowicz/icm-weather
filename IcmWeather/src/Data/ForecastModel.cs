@@ -14,22 +14,20 @@ namespace IcmWeather.Data
         public ushort Xmax { get; private set; }
         public ushort Ymin { get; private set; }
         public ushort Ymax { get; private set; }
-        public string SidebarUrl { get; private set; }
         public string MeteogramUrl { get; private set; }
         public List<City> Cities { get; private set; }
 
-        public ForecastModel(string name, ushort xmin, ushort xmax, 
-            ushort ymin, ushort ymax, string sidebarUrl, string meteogramUrl,
-            List<City> cities)
+        public ForecastModel(string _name, ushort _xmin, ushort _xmax, 
+            ushort _ymin, ushort _ymax, string _meteogramUrl,
+            List<City> _cities)
         {
-            Name = name;
-            Xmin = xmin;
-            Xmax = xmax;
-            Ymin = ymin;
-            Ymax = ymax;
-            SidebarUrl = sidebarUrl;
-            MeteogramUrl = meteogramUrl;
-            Cities = cities;
+            Name = _name;
+            Xmin = _xmin;
+            Xmax = _xmax;
+            Ymin = _ymin;
+            Ymax = _ymax;
+            MeteogramUrl = _meteogramUrl;
+            Cities = _cities;
         }
     }
 }

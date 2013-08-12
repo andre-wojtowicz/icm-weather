@@ -1,4 +1,8 @@
+### 1.2
+- fixed bug with downloading meteogram when there's no connection
+- fixed left-click on notification icon
+
 ### 1.1
 - fixed forecast form location depending on taskbar position and state
-- forecast form hides when deactivated and is no longer always on top
+- forecast form hides when deactivated
 - added cities

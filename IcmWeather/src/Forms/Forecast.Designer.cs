@@ -48,7 +48,7 @@
             // Forecast
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(34, 34);
+            this.ClientSize = new System.Drawing.Size(30, 30);
             this.ControlBox = false;
             this.Controls.Add(this.pbMeteogram);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

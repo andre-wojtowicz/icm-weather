@@ -29,6 +29,12 @@ namespace IcmWeather.Forms
             get { return _LastClosingTick; }
             private set { _LastClosingTick = value; }
         }
+        private static int _LastOpeningTick = 0;
+        public static int LastOpeningTick
+        {
+            get { return _LastOpeningTick; }
+            private set { _LastOpeningTick = value; }
+        }
 
         public Forecast(ForecastHelper _forecastHelper)
         {
@@ -42,6 +48,10 @@ namespace IcmWeather.Forms
                 LoadMeteogram();
                 MeteogramAvailable = true;
             }
+
+            //string cityName = forecastHelper.GetCityName();
+            //if (!cityName.Equals(""))
+            //    Text = cityName;
 
             PlaceNearNotifyIcon();
         }
@@ -101,6 +111,13 @@ namespace IcmWeather.Forms
         private void FormForecast_Deactivate(object sender, EventArgs e)
         {
             Close();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            LastOpeningTick = Environment.TickCount;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

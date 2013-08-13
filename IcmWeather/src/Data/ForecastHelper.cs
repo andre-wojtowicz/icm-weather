@@ -115,5 +115,10 @@ namespace IcmWeather.Data
 
             return DownloadStatus.OK;
         }
+
+        public string GetCityName()
+        {
+            return settingsHelper.ChosenCity;
+        }
     }
 }

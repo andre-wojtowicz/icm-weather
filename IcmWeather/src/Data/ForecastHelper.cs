@@ -13,7 +13,7 @@ namespace IcmWeather.Data
 {
     public class ForecastHelper
     {
-        public  Image Meteogram { get; private set; } 
+        public Image Meteogram { get; private set; }
         private Timer meteogramTimer;
 
         private BackgroundWorker worker = new BackgroundWorker();
@@ -56,7 +56,17 @@ namespace IcmWeather.Data
 
             DownloadStatus s = DownloadMeteogram();
             if (s == DownloadStatus.OK)
+            {
+                string cityName = settingsHelper.ChosenCity;
+                if (!cityName.Equals(""))
+                    AddCityNameToMeteogram(cityName);
+
+                MeteogramDownloadedHandler md_handler = MeteogramDownloaded;
+                if (md_handler != null)
+                    md_handler();
+
                 StartTimer((int)settingsHelper.ChosenRefreshRate * 60); // minutes to seconds
+            }
             else // ERROR
                 StartTimer(DOWNLOAD_RETRY_INTERVAL);
         }
@@ -77,11 +87,11 @@ namespace IcmWeather.Data
             if (dm_handler != null)
                 dm_handler();
 
-            string url  = settingsHelper.ChosenModel.MeteogramUrl;
-            string x    = settingsHelper.ChosenX.ToString();
-            string y    = settingsHelper.ChosenY.ToString();
+            string url = settingsHelper.ChosenModel.MeteogramUrl;
+            string x = settingsHelper.ChosenX.ToString();
+            string y = settingsHelper.ChosenY.ToString();
             string lang = settingsHelper.ChosenMeteogramLanguage;
-            
+
             url = url.Replace("{X}", x).Replace("{Y}", y).Replace("{LANG}", lang);
 
             //http://stackoverflow.com/a/4071052
@@ -94,10 +104,6 @@ namespace IcmWeather.Data
                 {
                     Meteogram = Bitmap.FromStream(stream);
                 }
-
-                MeteogramDownloadedHandler md_handler = MeteogramDownloaded;
-                if (md_handler != null)
-                    md_handler();
             }
             catch (System.Net.WebException err)
             {
@@ -116,9 +122,29 @@ namespace IcmWeather.Data
             return DownloadStatus.OK;
         }
 
-        public string GetCityName()
+        private void AddCityNameToMeteogram(string cityName)
         {
-            return settingsHelper.ChosenCity;
+            Font font = new Font("Verdana", 20);
+
+            SizeF stringSize = new SizeF();
+
+            using (var bmp = new Bitmap(Meteogram.Width, Meteogram.Height))
+            {
+                var tmp = Graphics.FromImage(bmp);
+                tmp.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+                stringSize = tmp.MeasureString(cityName, font);
+            }
+
+            var newMeteogram = new Bitmap(Meteogram.Width, Meteogram.Height + (int)stringSize.Height);
+
+            var gr = Graphics.FromImage(newMeteogram);
+            gr.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            gr.DrawImageUnscaled(Meteogram, 0, (int)stringSize.Height);
+
+            gr.DrawString(cityName, font, Brushes.Black,
+                new PointF(Meteogram.Width / 2 - stringSize.Width/2, 0));
+
+            Meteogram = newMeteogram;
         }
     }
 }

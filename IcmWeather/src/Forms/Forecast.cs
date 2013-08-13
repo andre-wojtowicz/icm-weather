@@ -47,11 +47,7 @@ namespace IcmWeather.Forms
             {
                 LoadMeteogram();
                 MeteogramAvailable = true;
-            }
-
-            //string cityName = forecastHelper.GetCityName();
-            //if (!cityName.Equals(""))
-            //    Text = cityName;
+            }                
 
             PlaceNearNotifyIcon();
         }

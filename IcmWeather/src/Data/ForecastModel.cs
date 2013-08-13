@@ -10,23 +10,30 @@ namespace IcmWeather.Data
     public class ForecastModel
     {
         public string Name { get; private set; }
+        public string DisplayName { get; private set; }
+        public List<Tuple<string, string>> Languages { get; private set; }
         public ushort Xmin { get; private set; }
         public ushort Xmax { get; private set; }
         public ushort Ymin { get; private set; }
         public ushort Ymax { get; private set; }
         public string MeteogramUrl { get; private set; }
+        public string SidebarUrl { get; private set; }
         public List<City> Cities { get; private set; }
 
-        public ForecastModel(string _name, ushort _xmin, ushort _xmax, 
-            ushort _ymin, ushort _ymax, string _meteogramUrl,
+        public ForecastModel(string _name, string _displayName, 
+            List<Tuple<string, string>> _languages, ushort _xmin, ushort _xmax,
+            ushort _ymin, ushort _ymax, string _meteogramUrl, string _sidebarUrl,
             List<City> _cities)
         {
             Name = _name;
+            DisplayName = _displayName;
+            Languages = _languages;
             Xmin = _xmin;
             Xmax = _xmax;
             Ymin = _ymin;
             Ymax = _ymax;
             MeteogramUrl = _meteogramUrl;
+            SidebarUrl = _sidebarUrl;
             Cities = _cities;
         }
     }

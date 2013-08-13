@@ -58,7 +58,6 @@
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(134, 21);
             this.cbModel.TabIndex = 1;
-            this.cbModel.SelectedIndexChanged += new System.EventHandler(this.cbModel_SelectedIndexChanged);
             // 
             // buttonSave
             // 
@@ -72,10 +71,11 @@
             // 
             // nudX
             // 
+            this.nudX.CausesValidation = false;
             this.nudX.Enabled = false;
             this.nudX.Location = new System.Drawing.Point(119, 115);
             this.nudX.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
@@ -85,10 +85,11 @@
             // 
             // nudY
             // 
+            this.nudY.CausesValidation = false;
             this.nudY.Enabled = false;
             this.nudY.Location = new System.Drawing.Point(198, 115);
             this.nudY.Maximum = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});

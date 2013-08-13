@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,12 @@ namespace IcmWeather.Data
     public class City
     {
         public Tuple<ushort, ushort> Location { get; private set; }
-        public string Name { get; private set; }
+        public Hashtable Names { get; private set; }
 
-        public City(Tuple<ushort, ushort> _location, string _name)
+        public City(Tuple<ushort, ushort> _location, Hashtable _names)
         {
             Location = _location;
-            Name = _name;
+            Names = _names;
         }
     }
 }

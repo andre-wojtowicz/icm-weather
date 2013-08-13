@@ -150,12 +150,10 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>echo Removing old files...
-del /Q languages.csv
 rmdir /S /Q models
 rmdir /S /Q "%25APPDATA%25\$(ProjectName)"
 echo Copying new files...
 cd ..\..
-xcopy res\languages.csv $(OutDir)
 xcopy /S /I /Y res\models $(OutDir)models
 xcopy /S /I /Y res\user_settings.ini "%25APPDATA%25\$(ProjectName)"\</PostBuildEvent>
   </PropertyGroup>

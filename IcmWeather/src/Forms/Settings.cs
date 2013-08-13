@@ -41,12 +41,13 @@ namespace IcmWeather.Forms
             SettingsUpdated += new SettingsUpdatedHandler(settingsHelper.SettingsUpdated);
             RefreshForecastDemanded += new RefreshForecastDemandedHandler(forecastHelper.NewMeteogramDemanded);
             cbCity.SelectedIndexChanged += new EventHandler(cbCity_SelectedIndexChanged);
+            cbModel.SelectedIndexChanged += new EventHandler(cbModel_SelectedIndexChanged);
         }
 
         private void UpdateFormControls()
         {
             cbModel.DataSource    = settingsHelper.AvailableModels;
-            cbModel.DisplayMember = "Name";
+            cbModel.DisplayMember = "DisplayName";
             cbModel.SelectedItem  = settingsHelper.ChosenModel;
 
             nudX.Value   = settingsHelper.ChosenX;
@@ -59,8 +60,7 @@ namespace IcmWeather.Forms
 
             nudRefresh.Value = settingsHelper.ChosenRefreshRate;
 
-            cbMeteogramLanguage.DataSource   = settingsHelper.AvailableLanguages;
-            cbMeteogramLanguage.SelectedItem = settingsHelper.ChosenMeteogramLanguage;
+            LoadMeteogramLanguagesToCombobox(settingsHelper.ChosenModel);
 
             LoadCitiesToCombobox(settingsHelper.ChosenModel);
 
@@ -78,12 +78,27 @@ namespace IcmWeather.Forms
             }
         }
 
+        private void LoadMeteogramLanguagesToCombobox(ForecastModel model)
+        {
+            cbMeteogramLanguage.DataSource = model.Languages;
+            cbMeteogramLanguage.ValueMember = "Item1";
+            cbMeteogramLanguage.DisplayMember = "Item2";
+
+            for (int i = 0; i < cbMeteogramLanguage.Items.Count; i++)
+                if (((Tuple<string,string>)cbMeteogramLanguage.Items[i]).Item1 == settingsHelper.ChosenMeteogramLanguage)
+                {
+                    cbMeteogramLanguage.SelectedIndex = i;
+                    break;
+                }
+        }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SettingsUpdatedHandler s_handler = SettingsUpdated;
             if (s_handler != null)
-                s_handler((ForecastModel)cbModel.SelectedItem, chbCustomLocation.Checked, ((City)cbCity.SelectedItem).Name,
-                    (uint)nudX.Value, (uint)nudY.Value, (uint)nudRefresh.Value, (string)cbMeteogramLanguage.SelectedItem);
+                s_handler((ForecastModel)cbModel.SelectedItem, chbCustomLocation.Checked, 
+                    cbCity.Text, (uint)nudX.Value, (uint)nudY.Value, (uint)nudRefresh.Value, 
+                    (string)cbMeteogramLanguage.SelectedValue);
             
             RefreshForecastDemandedHandler r_handler = RefreshForecastDemanded;
             if (r_handler != null)
@@ -111,13 +126,19 @@ namespace IcmWeather.Forms
             nudY.Minimum = model.Ymin;
 
             LoadCitiesToCombobox(model);
+
+            LoadMeteogramLanguagesToCombobox(model);
         }
 
         private void LoadCitiesToCombobox(ForecastModel model)
         {
-            cbCity.DataSource    = model.Cities;
-            cbCity.DisplayMember = "Name";
-            cbCity.ValueMember   = "Location";
+            var dict = new Dictionary<string, Tuple<ushort, ushort>>();
+            foreach (City city in model.Cities)
+                dict.Add((string)city.Names[(string)cbMeteogramLanguage.SelectedValue], city.Location);
+
+            cbCity.DataSource    =  new BindingSource(dict, null);
+            cbCity.DisplayMember = "Key";
+            cbCity.ValueMember   = "Value";
             cbCity.SelectedIndex = 0;
         }
 
@@ -135,9 +156,9 @@ namespace IcmWeather.Forms
         {
             if (!chbCustomLocation.Checked && cbCity.Items != null)
             {
-                City city = (City)cbCity.SelectedItem;
-                nudX.Value = city.Location.Item1;
-                nudY.Value = city.Location.Item2;
+                System.Tuple<ushort, ushort> location = ((KeyValuePair<string, System.Tuple<ushort, ushort>>)cbCity.SelectedItem).Value;
+                nudX.Value = location.Item1;
+                nudY.Value = location.Item2;
             }
         }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+    <name>um</name>
+    <display_name>UM (60h)</display_name>
+    <languages>
+        <lang name="English">en</lang>
+        <lang name="Polski">pl</lang>
+    </languages>
+    <x_min>17</x_min>
+    <x_max>430</x_max>
+    <y_min>17</y_min>
+    <y_max>598</y_max>
+    <meteogram_url>http://www.meteo.pl/um/metco/mgram_pict.php?ntype=0u&amp;col={X}&amp;row={Y}&amp;lang={LANG}</meteogram_url>
+    <sidebar_url>http://www.meteo.pl/um/metco/leg_um_{LANG}_20120615.png</sidebar_url>
+    <cities>
+        <city x="121" y="394" en="Berlin" pl="Berlin" />
+        <city x="285" y="379" en="Bialystok" pl="Białystok" />
+        <city x="179" y="519" en="Bratislava" pl="Bratysława" />
+        <city x="216" y="537" en="Budapest" pl="Budapeszt" />
+        <city x="199" y="381" en="Bydgoszcz" pl="Bydgoszcz" />
+        <city x="210" y="346" en="Gdansk" pl="Gdańsk" />
+        <city x="152" y="390" en="Gorzow Wlkp." pl="Gorzów Wlkp." />
+        <city x="299" y="182" en="Helsinki" pl="Helsinki" />
+        <city x="215" y="461" en="Katowice" pl="Katowice" />
+        <city x="244" y="443" en="Kielce" pl="Kielce" />
+        <city x="418" y="440" en="Kiev" pl="Kijów" />
+        <city x="402" y="539" en="Kishinev" pl="Kiszyniów" />
+        <city x="115" y="305" en="Copenhagen" pl="Kopenhaga" />
+        <city x="232" y="466" en="Krakow" pl="Kraków" />
+        <city x="35"  y="535" en="Liechtenstein" pl="Liechtenstein" />
+        <city x="127" y="574" en="Ljubljana" pl="Lublana" />
+        <city x="277" y="432" en="Lublin" pl="Lublin" />
+        <city x="223" y="418" en="Lodz" pl="Łódź" />
+        <city x="355" y="352" en="Minsk" pl="Mińsk" />
+        <city x="240" y="363" en="Olsztyn" pl="Olsztyn" />
+        <city x="196" y="449" en="Opole" pl="Opole" />
+        <city x="101" y="185" en="Oslo" pl="Oslo" />
+        <city x="180" y="400" en="Poznan" pl="Poznań" />
+        <city x="133" y="462" en="Prague" pl="Praga" />
+        <city x="294" y="272" en="Riga" pl="Ryga" />
+        <city x="269" y="465" en="Rzeszow" pl="Rzeszów" />
+        <city x="142" y="370" en="Szczecin" pl="Szczecin" />
+        <city x="203" y="209" en="Stockholm" pl="Sztokholm" />
+        <city x="298" y="203" en="Tallinn" pl="Tallinn" />
+        <city x="209" y="383" en="Torun" pl="Toruń" />
+        <city x="250" y="406" en="Warszawa" pl="Warszawa" />
+        <city x="166" y="516" en="Vienna" pl="Wiedeń" />
+        <city x="316" y="334" en="Vilnius" pl="Wilno" />
+        <city x="181" y="436" en="Wroclaw" pl="Wrocław" />
+        <city x="155" y="583" en="Zagreb" pl="Zagrzeb" />
+        <city x="155" y="412" en="Zielona Gora" pl="Zielona Góra" />
+    </cities>
+</model>

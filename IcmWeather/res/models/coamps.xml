@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+    <name>coamps</name>
+    <display_name>COAMPS (84h)</display_name>
+    <languages>
+        <lang name="English">en</lang>
+        <lang name="Polski">pl</lang>
+    </languages>
+    <x_min>8</x_min>
+    <x_max>158</x_max>
+    <y_min>10</y_min>
+    <y_max>208</y_max>
+    <meteogram_url>http://www.meteo.pl/metco/mgram_pict.php?ntype=2n&amp;col={X}&amp;row={Y}&amp;lang={LANG}</meteogram_url>
+    <sidebar_url>http://www.meteo.pl/metco/leg4_{LANG}.png</sidebar_url>
+    <cities>
+        <city x="14"  y="126" en="Amsterdam" pl="Amsterdam" />
+        <city x="94"  y="195" en="Belgrade" pl="Belgrad" />
+        <city x="57"  y="130" en="Berlin" pl="Berlin" />
+        <city x="20"  y="172" en="Berne" pl="Berno" />
+        <city x="106" y="125" en="Bialystok" pl="Białystok" />
+        <city x="75"  y="167" en="Bratislava" pl="Bratysława" />
+        <city x="9"   y="138" en="Brussels" pl="Bruksela" />
+        <city x="86"  y="173" en="Budapest" pl="Budapeszt" />
+        <city x="127" y="196" en="Bucharest" pl="Bukareszt" />
+        <city x="81"  y="126" en="Bydgoszcz" pl="Bydgoszcz" />
+        <city x="84"  y="115" en="Gdansk" pl="Gdańsk" />
+        <city x="67"  y="129" en="Gorzow Wlkp." pl="Gorzów Wlkp." />
+        <city x="111" y="65"  en="Helsinki" pl="Helsinki" />
+        <city x="85"  y="150" en="Katowice" pl="Katowice" />
+        <city x="94"  y="145" en="Kielce" pl="Kielce" />
+        <city x="146" y="144" en="Kiev" pl="Kijów" />
+        <city x="141" y="173" en="Kishinev" pl="Kiszyniów" />
+        <city x="55"  y="103" en="Copenhagen" pl="Kopenhaga" />
+        <city x="91"  y="151" en="Krakow" pl="Kraków" />
+        <city x="32"  y="172" en="Liechtenstein" pl="Liechtenstein" />
+        <city x="59"  y="184" en="Ljubljana" pl="Lublana" />
+        <city x="104" y="141" en="Lublin" pl="Lublin" />
+        <city x="88"  y="137" en="Lodz" pl="Łódź" />
+        <city x="17"  y="149" en="Luxembourg" pl="Luksemburg" />
+        <city x="128" y="117" en="Minsk" pl="Mińsk" />
+        <city x="16"  y="198" en="Monaco" pl="Monako" />
+        <city x="93"  y="120" en="Olsztyn" pl="Olsztyn" />
+        <city x="80"  y="146" en="Opole" pl="Opole" />
+        <city x="50"  y="67"  en="Oslo" pl="Oslo" />
+        <city x="75"  y="132" en="Poznan" pl="Poznań" />
+        <city x="61"  y="150" en="Prague" pl="Praga" />
+        <city x="109" y="93"  en="Riga" pl="Ryga" />
+        <city x="101" y="151" en="Rzeszow" pl="Rzeszów" />
+        <city x="46"  y="200" en="San Marino" pl="San Marino" />
+        <city x="82"  y="203" en="Sarajevo" pl="Sarajewo" />
+        <city x="63"  y="123" en="Szczecin" pl="Szczecin" />
+        <city x="82"  y="74"  en="Stockholm" pl="Sztokholm" />
+        <city x="111" y="72"  en="Tallinn" pl="Tallinn" />
+        <city x="84"  y="127" en="Torun" pl="Toruń" />
+        <city x="96"  y="133" en="Warszawa" pl="Warszawa" />
+        <city x="71"  y="166" en="Vienna" pl="Wiedeń" />
+        <city x="116" y="112" en="Vilnius" pl="Wilno" />
+        <city x="75"  y="143" en="Wroclaw" pl="Wrocław" />
+        <city x="68"  y="186" en="Zagreb" pl="Zagrzeb" />
+        <city x="68"  y="135" en="Zielona Gora" pl="Zielona Góra" />
+    </cities>
+</model>

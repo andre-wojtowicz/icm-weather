@@ -61,11 +61,41 @@ namespace IcmWeather.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon error_ico {
+            get {
+                object obj = ResourceManager.GetObject("error_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon refresh_ico {
+            get {
+                object obj = ResourceManager.GetObject("refresh_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon weather_ico {
+            get {
+                object obj = ResourceManager.GetObject("weather_ico", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap weather_icon {
+        internal static System.Drawing.Bitmap weather_png {
             get {
-                object obj = ResourceManager.GetObject("weather_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("weather_png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,6 +33,10 @@ namespace IcmWeather.Forms
 
             forecastHelper = new ForecastHelper(settingsHelper);
             RefreshForecastDemanded += new RefreshForecastDemandedHandler(forecastHelper.NewMeteogramDemanded);
+            forecastHelper.MeteogramDownloaded += new ForecastHelper.MeteogramDownloadedHandler(ChangeTrayIconToWeather);
+            forecastHelper.DownloadingMeteogram += new ForecastHelper.DownloadingMeteogramHandler(ChangeTrayIconToRefresh);
+            forecastHelper.ErrorDownload += new ForecastHelper.ErrorDownloadHandler(ChangeTrayIconToError);
+            forecastHelper.Launch();
 
             trayIcon.Text = Assembly.GetExecutingAssembly().GetName().Name;
             trayIcon.ContextMenu = trayMenu;
@@ -54,8 +58,11 @@ namespace IcmWeather.Forms
             if (((MouseEventArgs)e).Button == MouseButtons.Left && Environment.TickCount - Forecast.LastClosingTick > 500)
             {
                 forecastForm = new Forecast(forecastHelper);
-                forecastForm.FormClosed += ForecastFormClosed;
-                forecastForm.Show();
+                if (forecastForm.MeteogramAvailable)
+                {
+                    forecastForm.FormClosed += ForecastFormClosed;
+                    forecastForm.Show();
+                }
             }
         }
 
@@ -64,6 +71,24 @@ namespace IcmWeather.Forms
             settingsForm = new Settings(settingsHelper, forecastHelper);
             settingsForm.FormClosed += SettingsFormClosed;
             settingsForm.Show();
+        }
+
+        private void ChangeTrayIconToWeather()
+        {
+            trayIcon.Icon = Properties.Resources.weather_ico;
+            trayIcon.Text = Assembly.GetExecutingAssembly().GetName().Name;
+        }
+
+        private void ChangeTrayIconToRefresh()
+        {
+            trayIcon.Icon = Properties.Resources.refresh_ico;
+            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, "downloading meteogram");
+        }
+
+        private void ChangeTrayIconToError()
+        {
+            trayIcon.Icon = Properties.Resources.error_ico;
+            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, "can't download meteogram");
         }
 
         private void ForecastFormClosed(object sender, EventArgs e)

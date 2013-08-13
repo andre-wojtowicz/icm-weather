@@ -121,8 +121,11 @@
     <None Include="res\user_settings.ini" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\icons\Refresh.ico" />
     <None Include="res\icons\loading.gif" />
-    <None Include="Resources\loading.gif" />
+    <None Include="res\icons\Gnome-Refresh-48.png" />
+    <None Include="res\icons\Error.png" />
+    <None Include="res\icons\Error.ico" />
     <Content Include="res\icons\Gnome-Weather-Clear-48.ico" />
     <Content Include="res\icons\Gnome-Weather-Clear-48.png" />
   </ItemGroup>
@@ -143,6 +146,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>echo Removing old files...

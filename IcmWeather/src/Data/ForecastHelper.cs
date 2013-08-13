@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -15,21 +16,40 @@ namespace IcmWeather.Data
         public  Image Meteogram { get; private set; } 
         private Timer meteogramTimer;
 
+        private BackgroundWorker worker = new BackgroundWorker();
+
         private enum DownloadStatus { OK, ERROR }
         private const int DOWNLOAD_RETRY_INTERVAL = 10; // seconds
 
         private SettingsHelper settingsHelper;
 
+        public delegate void DownloadingMeteogramHandler();
+        public event DownloadingMeteogramHandler DownloadingMeteogram;
+
         public delegate void MeteogramDownloadedHandler();
         public event MeteogramDownloadedHandler MeteogramDownloaded;
+
+        public delegate void ErrorDownloadHandler();
+        public event ErrorDownloadHandler ErrorDownload;
 
         public ForecastHelper(SettingsHelper _settingsHelper)
         {
             settingsHelper = _settingsHelper;
-            NewMeteogramDemanded(null, null);
+            worker.DoWork += new DoWorkEventHandler(bw_DoWork);
+        }
+
+        public void Launch()
+        {
+            NewMeteogramDemanded(null, null); // TODO: background worker
         }
 
         public void NewMeteogramDemanded(object sender, EventArgs e)
+        {
+            if (!worker.IsBusy)
+                worker.RunWorkerAsync();
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             if (meteogramTimer != null)
                 meteogramTimer.Stop();
@@ -52,6 +72,10 @@ namespace IcmWeather.Data
         private DownloadStatus DownloadMeteogram()
         {
             Debug.WriteLine("Downloading meteogram...");
+
+            DownloadingMeteogramHandler dm_handler = DownloadingMeteogram;
+            if (dm_handler != null)
+                dm_handler();
 
             string url  = settingsHelper.ChosenModel.MeteogramUrl;
             string x    = settingsHelper.ChosenX.ToString();
@@ -79,6 +103,11 @@ namespace IcmWeather.Data
             {
                 Debug.WriteLine("Error downloading meteogram: " + err.Message);
                 Debug.WriteLine("Retry in " + DOWNLOAD_RETRY_INTERVAL.ToString() + " seconds.");
+
+                ErrorDownloadHandler ed_handler = ErrorDownload;
+                if (ed_handler != null)
+                    ed_handler();
+
                 return DownloadStatus.ERROR;
             }
 

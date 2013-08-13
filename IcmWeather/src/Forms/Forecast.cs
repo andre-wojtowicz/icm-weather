@@ -16,6 +16,13 @@ namespace IcmWeather.Forms
     public partial class Forecast : Form
     {
         private ForecastHelper forecastHelper;
+        private bool _MeteogramAvailable = false;
+        public bool MeteogramAvailable
+        {
+            get { return _MeteogramAvailable; }
+            private set { _MeteogramAvailable = value; }
+        }
+
         private static int _LastClosingTick = 0;
         public static int LastClosingTick
         {
@@ -31,24 +38,20 @@ namespace IcmWeather.Forms
             forecastHelper.MeteogramDownloaded += new ForecastHelper.MeteogramDownloadedHandler(LoadMeteogram);
 
             if (_forecastHelper.Meteogram != null)
+            {
                 LoadMeteogram();
-            else
-                LoadTmpImage();
+                MeteogramAvailable = true;
+            }
 
             PlaceNearNotifyIcon();
         }
 
         public void LoadMeteogram()
         {
-            if (pbMeteogram.InvokeRequired)
-                pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
-            else
+            //if (pbMeteogram.InvokeRequired)
+            //    pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
+            //else
                 pbMeteogram.Image = forecastHelper.Meteogram;
-        }
-
-        public void LoadTmpImage()
-        {
-            //pbMeteogram.Image = Resources.loading;
         }
 
         private void PlaceNearNotifyIcon()

@@ -48,9 +48,9 @@ namespace IcmWeather.Forms
 
         public void LoadMeteogram()
         {
-            //if (pbMeteogram.InvokeRequired)
-            //    pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
-            //else
+            if (pbMeteogram.InvokeRequired)
+                pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
+            else
                 pbMeteogram.Image = forecastHelper.Meteogram;
         }
 

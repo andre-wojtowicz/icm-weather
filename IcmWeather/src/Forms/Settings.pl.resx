@@ -123,9 +123,6 @@
   <data name="labelRefresh.Text" xml:space="preserve">
     <value>Odświeżanie (min)</value>
   </data>
-  <data name="labelLanguage.Text" xml:space="preserve">
-    <value>Język meteogramu</value>
-  </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Anuluj</value>
   </data>
@@ -148,6 +145,15 @@
   </data>
   <data name="cbShowSidebar.Text" xml:space="preserve">
     <value>Pokaż legendę</value>
+  </data>
+  <data name="linkLabelGithub.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 9</value>
+  </data>
+  <data name="linkLabelGithub.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 13</value>
+  </data>
+  <data name="linkLabelGithub.Text" xml:space="preserve">
+    <value>Strona projektu</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

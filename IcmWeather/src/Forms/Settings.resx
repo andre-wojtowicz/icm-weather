@@ -126,7 +126,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbModel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;cbModel.Name" xml:space="preserve">
     <value>cbModel</value>
@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbModel.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 193</value>
@@ -147,7 +147,7 @@
     <value>75, 23</value>
   </data>
   <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Save</value>
@@ -162,7 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="nudX.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -174,7 +174,7 @@
     <value>54, 20</value>
   </data>
   <data name="nudX.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;nudX.Name" xml:space="preserve">
     <value>nudX</value>
@@ -186,7 +186,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nudX.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="nudY.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -198,7 +198,7 @@
     <value>53, 20</value>
   </data>
   <data name="nudY.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;nudY.Name" xml:space="preserve">
     <value>nudY</value>
@@ -210,7 +210,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nudY.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="nudRefresh.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 141</value>
@@ -219,7 +219,7 @@
     <value>53, 20</value>
   </data>
   <data name="nudRefresh.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;nudRefresh.Name" xml:space="preserve">
     <value>nudRefresh</value>
@@ -231,7 +231,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nudRefresh.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="labelModel.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 37</value>
@@ -240,7 +240,7 @@
     <value>110, 13</value>
   </data>
   <data name="labelModel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>11</value>
   </data>
   <data name="labelModel.Text" xml:space="preserve">
     <value>Model</value>
@@ -258,7 +258,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelModel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="labelX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -270,7 +270,7 @@
     <value>14, 13</value>
   </data>
   <data name="labelX.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>13</value>
   </data>
   <data name="labelX.Text" xml:space="preserve">
     <value>X</value>
@@ -285,7 +285,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelX.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="labelY.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -297,7 +297,7 @@
     <value>14, 13</value>
   </data>
   <data name="labelY.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>14</value>
   </data>
   <data name="labelY.Text" xml:space="preserve">
     <value>Y</value>
@@ -312,7 +312,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelY.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="labelRefresh.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 141</value>
@@ -321,7 +321,7 @@
     <value>110, 13</value>
   </data>
   <data name="labelRefresh.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>15</value>
   </data>
   <data name="labelRefresh.Text" xml:space="preserve">
     <value>Refresh (min)</value>
@@ -339,13 +339,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelRefresh.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="linkLabelMeteo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="linkLabelMeteo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 9</value>
+    <value>12, 9</value>
   </data>
   <data name="linkLabelMeteo.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 13</value>
@@ -366,7 +366,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabelMeteo.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 193</value>
@@ -375,7 +375,7 @@
     <value>75, 23</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -390,7 +390,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbCity.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 65</value>
@@ -399,7 +399,7 @@
     <value>134, 21</value>
   </data>
   <data name="cbCity.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;cbCity.Name" xml:space="preserve">
     <value>cbCity</value>
@@ -411,7 +411,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbCity.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelCity.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 68</value>
@@ -420,7 +420,7 @@
     <value>110, 13</value>
   </data>
   <data name="labelCity.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="labelCity.Text" xml:space="preserve">
     <value>City</value>
@@ -438,7 +438,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelCity.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="chbCustomLocation.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -450,7 +450,7 @@
     <value>120, 17</value>
   </data>
   <data name="chbCustomLocation.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="chbCustomLocation.Text" xml:space="preserve">
     <value>Custom location</value>
@@ -468,7 +468,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chbCustomLocation.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbShowSidebar.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -480,7 +480,7 @@
     <value>120, 17</value>
   </data>
   <data name="cbShowSidebar.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="cbShowSidebar.Text" xml:space="preserve">
     <value>Show legend</value>
@@ -498,6 +498,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbShowSidebar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="linkLabelGithub.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 9</value>
+  </data>
+  <data name="linkLabelGithub.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 13</value>
+  </data>
+  <data name="linkLabelGithub.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="linkLabelGithub.Text" xml:space="preserve">
+    <value>Project website</value>
+  </data>
+  <data name="linkLabelGithub.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithub.Name" xml:space="preserve">
+    <value>linkLabelGithub</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithub.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithub.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithub.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

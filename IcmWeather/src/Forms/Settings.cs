@@ -22,6 +22,8 @@ namespace IcmWeather.Forms
         private SettingsHelper settingsHelper;
         private ForecastHelper forecastHelper;
 
+        private const string GITHUB_URL = "http://drzuo.github.io/icm_weather";
+
         public delegate void RefreshForecastDemandedHandler(object sender, EventArgs e);
         public event RefreshForecastDemandedHandler RefreshForecastDemanded;
 
@@ -163,6 +165,11 @@ namespace IcmWeather.Forms
 
             SettingsUpdated -= settingsHelper.SettingsUpdated;
             RefreshForecastDemanded -= forecastHelper.NewMeteogramDemanded;
+        }
+
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(GITHUB_URL);
         }
     }
 }

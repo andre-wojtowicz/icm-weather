@@ -66,7 +66,8 @@ namespace IcmWeather.Forms
         {
             if (((MouseEventArgs)e).Button == MouseButtons.Left 
                 && Environment.TickCount - Forecast.LastClosingTick > SHOW_TIME_THRESHOLD 
-                && Environment.TickCount - Forecast.LastOpeningTick > SHOW_TIME_THRESHOLD)
+                && Environment.TickCount - Forecast.LastOpeningTick > SHOW_TIME_THRESHOLD
+                && forecastForm == null)
             {
                 forecastForm = new Forecast(forecastHelper);
                 if (forecastForm.MeteogramAvailable)
@@ -79,9 +80,12 @@ namespace IcmWeather.Forms
 
         private void ShowSettings(object sender, EventArgs e)
         {
-            settingsForm = new Settings(settingsHelper, forecastHelper);
-            settingsForm.FormClosed += SettingsFormClosed;
-            settingsForm.Show();
+            if (settingsForm == null)
+            {
+                settingsForm = new Settings(settingsHelper, forecastHelper);
+                settingsForm.FormClosed += SettingsFormClosed;
+                settingsForm.Show();
+            }
         }
 
         private void ChangeTrayIconToWeather()

@@ -44,6 +44,7 @@
             this.labelCity = new System.Windows.Forms.Label();
             this.chbCustomLocation = new System.Windows.Forms.CheckBox();
             this.cbShowSidebar = new System.Windows.Forms.CheckBox();
+            this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRefresh)).BeginInit();
@@ -165,11 +166,19 @@
             this.cbShowSidebar.Name = "cbShowSidebar";
             this.cbShowSidebar.UseVisualStyleBackColor = true;
             // 
+            // linkLabelGithub
+            // 
+            resources.ApplyResources(this.linkLabelGithub, "linkLabelGithub");
+            this.linkLabelGithub.Name = "linkLabelGithub";
+            this.linkLabelGithub.TabStop = true;
+            this.linkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithub_LinkClicked);
+            // 
             // Settings
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlBox = false;
+            this.Controls.Add(this.linkLabelGithub);
             this.Controls.Add(this.cbShowSidebar);
             this.Controls.Add(this.chbCustomLocation);
             this.Controls.Add(this.labelCity);
@@ -212,5 +221,6 @@
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.CheckBox chbCustomLocation;
         private System.Windows.Forms.CheckBox cbShowSidebar;
+        private System.Windows.Forms.LinkLabel linkLabelGithub;
     }
 }

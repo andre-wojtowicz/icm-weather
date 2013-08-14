@@ -342,12 +342,13 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ICM_Weather.Primary_output1</td><td>{6757C8DD-83A2-44DA-8C5B-DD7AAA902E00}</td><td>INSTALLDIR</td><td>2</td><td/><td>icm_weather.primary_output1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ICM_Weather.resources.dll</td><td>{F8F206AB-7533-419A-94CF-A2C480029034}</td><td>PL</td><td>2</td><td/><td>icm_weather.resources.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ICM_Weather.resources.dll</td><td>{FE2C705A-B26E-465F-89AF-290259DCD661}</td><td>PL</td><td>2</td><td/><td>icm_weather.resources.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{990FC2AA-BD30-473F-9629-6A635E523EC4}</td><td>AppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{3A4D367C-CCDE-407C-B896-02AB332194D4}</td><td>ICM_WEATHER1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{BC302E5C-264E-4CEF-9DEA-A3CFB761446B}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{F4E62C5D-A8B1-49EF-B5DE-A3ED2A95D9BE}</td><td>MODELS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{23BA3610-A483-477F-BED7-D0C481738FC1}</td><td>PL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{0FE0849C-5612-4F8F-8A92-55C4FC14E807}</td><td>LANGUAGES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{D4B6A919-6E4D-4F38-9AB5-04070108D33B}</td><td>PL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{E7D9532B-0981-4BBA-A0D7-D7A49AAA940B}</td><td>StartupFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1061,7 +1062,8 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
-		<row><td>PL</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>LANGUAGES</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>PL</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>StartupFolder</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 	</table>
 
@@ -1160,13 +1162,14 @@
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
+		<row><td>LANGUAGES</td><td>INSTALLDIR</td><td>LANGUA~1|languages</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
 		<row><td>MODELS</td><td>INSTALLDIR</td><td>models</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME</td><td>OPEN_SOURCE</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>OPEN_SOURCE</td><td>ProgramFilesFolder</td><td>OPENSO~1|Open Source</td><td/><td>0</td><td/></row>
-		<row><td>PL</td><td>INSTALLDIR</td><td>pl</td><td/><td>0</td><td/></row>
+		<row><td>PL</td><td>LANGUAGES</td><td>pl</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1883,6 +1886,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 	</table>
 
@@ -1900,7 +1904,7 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>coamps.xml</td><td>ISX_DEFAULTCOMPONENT3</td><td>coamps.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\coamps.xml</td><td>1</td><td/></row>
 		<row><td>icm_weather.primary_output1</td><td>ICM_Weather.Primary_output1</td><td>ICM Weather.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ICM Weather&gt;|Built</td><td>3</td><td/></row>
-		<row><td>icm_weather.resources.dll</td><td>ICM_Weather.resources.dll</td><td>ICMWEA~1.DLL|ICM Weather.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\bin\Release\pl\ICM Weather.resources.dll</td><td>1</td><td/></row>
+		<row><td>icm_weather.resources.dll</td><td>ICM_Weather.resources.dll</td><td>ICMWEA~1.DLL|ICM Weather.resources.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\bin\Release\languages\pl\ICM Weather.resources.dll</td><td>1</td><td/></row>
 		<row><td>um.xml</td><td>ISX_DEFAULTCOMPONENT3</td><td>um.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\models\um.xml</td><td>1</td><td/></row>
 		<row><td>user_settings.ini</td><td>ISX_DEFAULTCOMPONENT1</td><td>USER_S~1.INI|user_settings.ini</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Andrzej\workspace\icmweather\IcmWeather\res\user_settings.ini</td><td>1</td><td/></row>
 	</table>
@@ -2160,12 +2164,13 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>ICM_Weather.Primary_output1</td><td/><td/><td>_C0D819E3_D83A_462A_AB38_4A18F369A203_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ICM_Weather.resources.dll</td><td/><td/><td>_BC77114F_1D0C_4E78_9BD5_97112EADE04E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ICM_Weather.resources.dll</td><td/><td/><td>_1EA35E86_D815_402B_BF7C_5169C464C51B_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_88EB2B35_6BB0_4D80_A7D9_872CA1B92C80_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_39859B52_34DA_4CE1_BEDE_FFE864714B5E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_8A6B10AF_83FA_4D09_87AB_5EF3096BBEE8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_06711E63_A84E_4AF2_8D4B_8E743FC8EB1E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_F5A06D18_C285_49C2_8C75_5FDFDCA12201_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_E43D1822_0DC5_4BBA_B3B5_05E0905AF591_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_C0428259_254A_4DA0_A73C_AB232D0AB369_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_83AB2839_2BA1_4328_BF59_DD9F92E7182F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2762,7 +2767,7 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
-		<row><td>_453BC7EB_0522_45D7_A544_38219CFD59DE_</td><td>Microsoft .NET Framework 4.5 Web.prq</td><td/><td/><td/></row>
+		<row><td>_C7221123_BE5F_4DBC_9536_2E31227128FD_</td><td>Microsoft .NET Framework 4.5 Web.prq</td><td/><td/><td/></row>
 	</table>
 
 	<table name="ISSetupType">

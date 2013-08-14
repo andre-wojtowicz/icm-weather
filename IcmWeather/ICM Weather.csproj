@@ -128,6 +128,7 @@
     <EmbeddedResource Include="src\Forms\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="res\models\coamps\base.ini" />
     <None Include="res\models\coamps\cities.csv" />
     <None Include="res\models\um\base.ini" />
@@ -164,9 +165,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>echo Removing old files...
+rmdir /S /Q languages
 rmdir /S /Q models
 rmdir /S /Q "%25APPDATA%25\$(ProjectName)"
 echo Copying new files...
+robocopy $(TargetDir) $(TargetDir)\languages "$(TargetName).resources.dll" /CREATE /S /XD languages /IS /IT 
+robocopy $(TargetDir) $(TargetDir)\languages "$(TargetName).resources.dll" /MOVE /S /XD languages /XL /IS
 cd ..\..
 xcopy /S /I /Y res\models $(OutDir)models
 xcopy /S /I /Y res\user_settings.ini "%25APPDATA%25\$(ProjectName)"\</PostBuildEvent>

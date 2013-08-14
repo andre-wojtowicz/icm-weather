@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model>
     <name>um</name>
-    <display_name>UM (60h)</display_name>
+    <display_name>UM</display_name>
     <languages>
         <lang name="English">en</lang>
         <lang name="Polski">pl</lang>

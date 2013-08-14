@@ -21,6 +21,10 @@ namespace IcmWeather.Data
         private enum DownloadStatus { OK, ERROR }
         private const int DOWNLOAD_RETRY_INTERVAL = 10; // seconds
 
+        private const string TITLEBAR_FONT_NAME = "Verdana";
+        private const int TITLEBAR_FONT_SIZE = 20;
+        private Brush TITLEBAR_TEXT_COLOR = Brushes.Black;
+
         private SettingsHelper settingsHelper;
 
         public delegate void DownloadingMeteogramHandler();
@@ -57,9 +61,7 @@ namespace IcmWeather.Data
             DownloadStatus s = DownloadMeteogram();
             if (s == DownloadStatus.OK)
             {
-                string cityName = settingsHelper.ChosenCity;
-                if (!cityName.Equals(""))
-                    AddCityNameToMeteogram(cityName);
+                AddTitleBar(settingsHelper.ChosenModel.DisplayName, settingsHelper.ChosenCity);
 
                 MeteogramDownloadedHandler md_handler = MeteogramDownloaded;
                 if (md_handler != null)
@@ -122,9 +124,9 @@ namespace IcmWeather.Data
             return DownloadStatus.OK;
         }
 
-        private void AddCityNameToMeteogram(string cityName)
+        private void AddTitleBar(string modelName, string cityName)
         {
-            Font font = new Font("Verdana", 20);
+            Font font = new Font(TITLEBAR_FONT_NAME, TITLEBAR_FONT_SIZE);
 
             SizeF stringSize = new SizeF();
 
@@ -132,17 +134,24 @@ namespace IcmWeather.Data
             {
                 var tmp = Graphics.FromImage(bmp);
                 tmp.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-                stringSize = tmp.MeasureString(cityName, font);
+                stringSize = tmp.MeasureString(modelName, font);
             }
 
-            var newMeteogram = new Bitmap(Meteogram.Width, Meteogram.Height + (int)stringSize.Height);
+            var newMeteogram = new Bitmap(Meteogram.Width,
+                Meteogram.Height + (int)stringSize.Height);
 
             var gr = Graphics.FromImage(newMeteogram);
             gr.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             gr.DrawImageUnscaled(Meteogram, 0, (int)stringSize.Height);
 
-            gr.DrawString(cityName, font, Brushes.Black,
-                new PointF(Meteogram.Width / 2 - stringSize.Width/2, 0));
+            gr.DrawString(modelName, font, TITLEBAR_TEXT_COLOR, new PointF(0, 0));
+
+            if (!cityName.Equals(""))
+            {
+                stringSize = gr.MeasureString(cityName, font);
+                gr.DrawString(cityName, font, TITLEBAR_TEXT_COLOR,
+                    new PointF(Meteogram.Width - stringSize.Width, 0));
+            }
 
             Meteogram = newMeteogram;
         }

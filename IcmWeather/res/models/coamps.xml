@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model>
     <name>coamps</name>
-    <display_name>COAMPS (84h)</display_name>
+    <display_name>COAMPS</display_name>
     <languages>
         <lang name="English">en</lang>
         <lang name="Polski">pl</lang>

@@ -5,11 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
+using System.Threading;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using IcmWeather.Data;
+
 
 namespace IcmWeather.Forms
 {
@@ -18,6 +22,8 @@ namespace IcmWeather.Forms
         private ContextMenu trayMenu = new ContextMenu();
         private Forecast forecastForm;
         private Settings settingsForm;
+
+        private ResourceManager locRM;
 
         private ForecastHelper forecastHelper;
         private SettingsHelper settingsHelper = new SettingsHelper();
@@ -32,6 +38,8 @@ namespace IcmWeather.Forms
         {
             InitializeComponent();
 
+            locRM = new ResourceManager("IcmWeather.src.Localizations.Messages", this.GetType().Assembly);
+
             forecastHelper = new ForecastHelper(settingsHelper);
             RefreshForecastDemanded += new RefreshForecastDemandedHandler(forecastHelper.NewMeteogramDemanded);
             forecastHelper.MeteogramDownloaded += new ForecastHelper.MeteogramDownloadedHandler(ChangeTrayIconToWeather);
@@ -42,9 +50,9 @@ namespace IcmWeather.Forms
             trayIcon.Text = Assembly.GetExecutingAssembly().GetName().Name;
             trayIcon.ContextMenu = trayMenu;
 
-            trayMenu.MenuItems.Add("Settings", ShowSettings);
-            trayMenu.MenuItems.Add("Refresh", RefreshForecast);
-            trayMenu.MenuItems.Add("Exit", OnExit);
+            trayMenu.MenuItems.Add(locRM.GetString("settings"), ShowSettings);
+            trayMenu.MenuItems.Add(locRM.GetString("refresh"), RefreshForecast);
+            trayMenu.MenuItems.Add(locRM.GetString("exit"), OnExit);
         }
 
         public void RefreshForecast(object sender, EventArgs e)
@@ -85,13 +93,13 @@ namespace IcmWeather.Forms
         private void ChangeTrayIconToRefresh()
         {
             trayIcon.Icon = Properties.Resources.refresh_ico;
-            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, "downloading meteogram");
+            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, locRM.GetString("downloading"));
         }
 
         private void ChangeTrayIconToError()
         {
             trayIcon.Icon = Properties.Resources.error_ico;
-            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, "can't download meteogram");
+            trayIcon.Text = String.Format("{0} - {1}", Assembly.GetExecutingAssembly().GetName().Name, locRM.GetString("error_download"));
         }
 
         private void ForecastFormClosed(object sender, EventArgs e)

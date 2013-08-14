@@ -91,7 +91,7 @@ namespace IcmWeather.Data
             if (dm_handler != null)
                 dm_handler();
 
-            string lang = settingsHelper.ChosenMeteogramLanguage;
+            string lang = settingsHelper.Language;
 
             // sidebar
             

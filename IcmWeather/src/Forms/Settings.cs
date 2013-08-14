@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Globalization;
+using System.Threading;
+
 using IcmWeather.Data;
 
 namespace IcmWeather.Forms
@@ -19,13 +22,11 @@ namespace IcmWeather.Forms
         private SettingsHelper settingsHelper;
         private ForecastHelper forecastHelper;
 
-        private const string ICM_URL = "http://www.meteo.pl";
-
         public delegate void RefreshForecastDemandedHandler(object sender, EventArgs e);
         public event RefreshForecastDemandedHandler RefreshForecastDemanded;
 
         public delegate void SettingsUpdatedHandler(ForecastModel _model, bool _customLocation, string _city, 
-            uint _x, uint _y, uint _refreshRate, bool _showSidebar, string _meteogramLanguage);
+            uint _x, uint _y, uint _refreshRate, bool _showSidebar);
         public event SettingsUpdatedHandler SettingsUpdated;
 
         public Settings(SettingsHelper _settingsHelper, ForecastHelper _forecastHelper)
@@ -60,8 +61,6 @@ namespace IcmWeather.Forms
 
             nudRefresh.Value = settingsHelper.ChosenRefreshRate;
 
-            LoadMeteogramLanguagesToCombobox(settingsHelper.ChosenModel);
-
             LoadCitiesToCombobox(settingsHelper.ChosenModel);
 
             if (settingsHelper.ChosenCity.Equals(""))
@@ -80,37 +79,13 @@ namespace IcmWeather.Forms
             cbShowSidebar.Checked = settingsHelper.ChosenShowSidebar;
         }
 
-        private void LoadMeteogramLanguagesToCombobox(ForecastModel model)
-        {
-            List<Tuple<string, string>> list = model.Languages;
-
-            list.Sort(
-                delegate(Tuple<string, string> firstPair,
-                    Tuple<string, string> nextPair)
-                {
-                    return firstPair.Item2.CompareTo(nextPair.Item2);
-                }
-            );
-
-            cbMeteogramLanguage.DataSource = list;
-            cbMeteogramLanguage.ValueMember = "Item1";
-            cbMeteogramLanguage.DisplayMember = "Item2";
-
-            for (int i = 0; i < cbMeteogramLanguage.Items.Count; i++)
-                if (((Tuple<string,string>)cbMeteogramLanguage.Items[i]).Item1 == settingsHelper.ChosenMeteogramLanguage)
-                {
-                    cbMeteogramLanguage.SelectedIndex = i;
-                    break;
-                }
-        }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SettingsUpdatedHandler s_handler = SettingsUpdated;
             if (s_handler != null)
                 s_handler((ForecastModel)cbModel.SelectedItem, chbCustomLocation.Checked, 
                     cbCity.Text, (uint)nudX.Value, (uint)nudY.Value, (uint)nudRefresh.Value,
-                    cbShowSidebar.Checked, (string)cbMeteogramLanguage.SelectedValue);
+                    cbShowSidebar.Checked);
             
             RefreshForecastDemandedHandler r_handler = RefreshForecastDemanded;
             if (r_handler != null)
@@ -126,7 +101,7 @@ namespace IcmWeather.Forms
 
         private void linkLabelMeteo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(ICM_URL);
+            System.Diagnostics.Process.Start(settingsHelper.IcmWebpageUrl);
         }
 
         private void cbModel_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,15 +113,13 @@ namespace IcmWeather.Forms
             nudY.Minimum = model.Ymin;
 
             LoadCitiesToCombobox(model);
-
-            LoadMeteogramLanguagesToCombobox(model);
         }
 
         private void LoadCitiesToCombobox(ForecastModel model)
         {
             var dict = new Dictionary<string, Tuple<ushort, ushort>>();
             foreach (City city in model.Cities)
-                dict.Add((string)city.Names[(string)cbMeteogramLanguage.SelectedValue], city.Location);
+                dict.Add(city.Name, city.Location);
 
             List<KeyValuePair<string, Tuple<ushort, ushort>>> list = dict.ToList();
 

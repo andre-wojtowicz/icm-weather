@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
-using IcmWeather.Utils;
 using System.Xml;
 using System.Collections;
+using System.Globalization;
+
+using IcmWeather.Utils;
 
 namespace IcmWeather.Data
 {
@@ -20,7 +22,11 @@ namespace IcmWeather.Data
         public uint          ChosenY                 { get; private set; }
         public uint          ChosenRefreshRate       { get; private set; }
         public bool          ChosenShowSidebar       { get; private set; }
-        public string        ChosenMeteogramLanguage { get; private set; }
+
+        public string        Language                { get; private set; }
+        public string        IcmWebpageUrl         { get; private set; }
+
+        private string       defaultLanguage         = "en";
 
         public List<ForecastModel> AvailableModels    { get; private set; }
 
@@ -46,13 +52,13 @@ namespace IcmWeather.Data
         private const string INI_SETTINGS_KEY_Y                  = "y";
         private const string INI_SETTINGS_KEY_REFRESH_RATE       = "refresh_rate";
         private const string INI_SETTINGS_KEY_SHOW_SIDEBAR       = "show_sidebar";
-        private const string INI_SETTINGS_KEY_METEOGRAM_LANGUAGE = "meteogram_language";
 
         private IniFile inifile = new IniFile(Path.Combine(
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             Assembly.GetEntryAssembly().GetName().Name), INI_SETTINGS_FILENAME));
 
         private const string MODELS_DIR = "models";
+        private const string ICM_URL = "http://www.meteo.pl/index{LANG}.php";
         
         public SettingsHelper()
         {
@@ -65,6 +71,8 @@ namespace IcmWeather.Data
 
         private void LoadModels()
         {
+            Debug.WriteLine("Loading models...");
+
             string[] files = Directory.GetFiles(MODELS_DIR);
 
             foreach (string file in files)
@@ -75,13 +83,18 @@ namespace IcmWeather.Data
                 string m_name          = doc.DocumentElement.SelectSingleNode(XML_MODEL_NAME).InnerText;
                 string m_display_name  = doc.DocumentElement.SelectSingleNode(XML_MODEL_DISPLAY_NAME).InnerText;
 
-                List<Tuple<string, string>> m_languages = new List<Tuple<string, string>>();
+                List<string> m_languages = new List<string>();
                 foreach (XmlNode node in doc.DocumentElement.SelectSingleNode(XML_MODEL_LANGUAGES).ChildNodes)
                 {
                     string l_name      = node.Attributes[XML_MODEL_LANGUAGE_NAME].InnerText;
                     string l_shortcode = node.InnerText;
-                    m_languages.Add(new Tuple<string, string>(l_shortcode, l_name));
+                    m_languages.Add(l_shortcode);
                 }
+
+                string system_lang = CultureInfo.CurrentUICulture.Parent.Name;
+                Language = (m_languages.Any(system_lang.Equals) ? system_lang : defaultLanguage);
+
+                IcmWebpageUrl = ICM_URL.Replace("{LANG}", (Language.Equals("pl") ? "" : "_"+Language));
 
                 ushort m_xmin          = Convert.ToUInt16(doc.DocumentElement.SelectSingleNode(XML_MODEL_X_MIN).InnerText);
                 ushort m_xmax          = Convert.ToUInt16(doc.DocumentElement.SelectSingleNode(XML_MODEL_X_MAX).InnerText);
@@ -97,20 +110,22 @@ namespace IcmWeather.Data
                     ushort c_x = Convert.ToUInt16(node.Attributes[XML_MODEL_CITY_X].InnerText);
                     ushort c_y = Convert.ToUInt16(node.Attributes[XML_MODEL_CITY_Y].InnerText);
 
-                    Hashtable c_names = new Hashtable();
-                    foreach (Tuple<string, string> lang in m_languages)
-                        c_names[lang.Item1] = node.Attributes[lang.Item1].InnerText;
+                    string c_name = node.Attributes[Language].InnerText;
 
-                    m_cities.Add(new City(new Tuple<ushort, ushort>(c_x, c_y), c_names));
+                    m_cities.Add(new City(new Tuple<ushort, ushort>(c_x, c_y), c_name));
                 }
 
-                AvailableModels.Add(new ForecastModel(m_name, m_display_name, m_languages, m_xmin, m_xmax, m_ymin, m_ymax,
+                AvailableModels.Add(new ForecastModel(m_name, m_display_name, m_xmin, m_xmax, m_ymin, m_ymax,
                     m_meteogram_url, m_sidebar_url, m_cities));
             }
+
+            Debug.WriteLine("Models loaded.");
         }
 
         private void LoadSettings()
         {
+            Debug.WriteLine("Loading settings...");
+
             string iniModel = inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_MODEL);
             foreach (ForecastModel model in AvailableModels)
                 if (model.Name == iniModel)
@@ -124,23 +139,29 @@ namespace IcmWeather.Data
             ChosenY           = Convert.ToUInt32(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_Y));
             ChosenRefreshRate = Convert.ToUInt32(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_REFRESH_RATE));
             ChosenShowSidebar = Convert.ToBoolean(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_SHOW_SIDEBAR));
-            ChosenMeteogramLanguage = inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_METEOGRAM_LANGUAGE);
+
+            Debug.WriteLine("Settings loaded.");
         }
 
-        private void SaveSettings(string _model, string _city, uint _x, uint _y, uint _refreshRate, bool _showSidebar, string _meteogramLanguage)
+        private void SaveSettings(string _model, string _city, uint _x, uint _y, uint _refreshRate, bool _showSidebar)
         {
+            Debug.WriteLine("Saving settings...");
+
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_MODEL,              _model);
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_CITY,               _city);
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_X,                  _x.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_Y,                  _y.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_REFRESH_RATE,       _refreshRate.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_SHOW_SIDEBAR,       _showSidebar.ToString());
-            inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_METEOGRAM_LANGUAGE, _meteogramLanguage);
+
+            Debug.WriteLine("Settings saved.");
         }
 
         public void SettingsUpdated(ForecastModel _model, bool _customLocation, string _city, uint _x, uint _y, uint _refreshRate,
-            bool _showSidebar, string _meteogramLanguage)
+            bool _showSidebar)
         {
+            Debug.WriteLine("Updating settings...");
+
             ChosenModel = _model;
 
             if (_customLocation)
@@ -152,10 +173,11 @@ namespace IcmWeather.Data
             ChosenY = _y;
 
             ChosenRefreshRate = _refreshRate;
-            ChosenMeteogramLanguage = _meteogramLanguage;
             ChosenShowSidebar = _showSidebar;
 
-            SaveSettings(_model.Name, _city, _x, _y, _refreshRate, _showSidebar, _meteogramLanguage);
+            SaveSettings(_model.Name, _city, _x, _y, _refreshRate, _showSidebar);
+
+            Debug.WriteLine("Settings updated.");
         }
     }
 }

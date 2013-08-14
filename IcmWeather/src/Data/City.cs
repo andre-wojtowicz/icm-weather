@@ -10,12 +10,12 @@ namespace IcmWeather.Data
     public class City
     {
         public Tuple<ushort, ushort> Location { get; private set; }
-        public Hashtable Names { get; private set; }
+        public string Name { get; private set; }
 
-        public City(Tuple<ushort, ushort> _location, Hashtable _names)
+        public City(Tuple<ushort, ushort> _location, string _name)
         {
             Location = _location;
-            Names = _names;
+            Name = _name;
         }
     }
 }

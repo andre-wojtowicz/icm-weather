@@ -4536,7 +4536,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]ICM Weather.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{B382B311-4BB9-4440-9EB6-D12D9BB7DCBC}</td><td/></row>
 		<row><td>ProductName</td><td>ICM Weather</td><td/></row>
-		<row><td>ProductVersion</td><td>1.2</td><td/></row>
+		<row><td>ProductVersion</td><td>1.2.1</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>

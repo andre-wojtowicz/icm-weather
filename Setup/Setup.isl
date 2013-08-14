@@ -348,6 +348,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{B4175A8A-1B0A-4E18-A633-A84E98F574D1}</td><td>MODELS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{5893A6E9-BBF5-47CD-97EA-899C28E35B89}</td><td>COAMPS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{2ACFD3E1-5711-4B8D-A629-AADF9134EC34}</td><td>UM</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{E7D9532B-0981-4BBA-A0D7-D7A49AAA940B}</td><td>StartupFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1060,6 +1061,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>MODELS</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>StartupFolder</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1182,8 +1184,9 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>icmwea_1_icm_weather</td><td>openso_1_open_source</td><td>ICMWEA~1|ICM Weather</td><td/><td>1</td><td/></row>
-		<row><td>openso_1_open_source</td><td>ProgramMenuFolder</td><td>OPENSO~1|Open Source</td><td/><td>1</td><td/></row>
+		<row><td>icm_weather</td><td>openso_1_open_source</td><td>ICMWEA~1|icm weather</td><td/><td>1</td><td/></row>
+		<row><td>icmwea_1_icm_weather</td><td>ProgramMenuFolder</td><td>ICMWEA~1|ICM Weather</td><td/><td>1</td><td/></row>
+		<row><td>openso_1_open_source</td><td>ProgramMenuFolder</td><td>openso~1|open source</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1882,6 +1885,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
 	</table>
 
 	<table name="File">
@@ -2166,6 +2170,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_937DB180_A738_461F_B4B9_DFE59721AC8D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_8D944D2E_C7DB_4FF4_B4CC_D6E806932546_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_394B9BA6_DC9D_4850_AD59_F40019B8269C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_83AB2839_2BA1_4328_BF59_DD9F92E7182F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3897,10 +3902,11 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1277256258</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1277256258</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>1277260354</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.OpenSource.com</td><td>0</td><td/><td>1411508051</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>Open Source</td><td>0</td><td/><td>1411508051</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>https://github.com/drZuo/icm_weather</td><td>0</td><td/><td>1948362284</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>drZuo</td><td>0</td><td/><td>1948358220</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>1277278914</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>ICM Weather</td><td>0</td><td/><td>1411509971</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>ICM Weather</td><td>0</td><td/><td>1948341772</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1277256258</td></row>
 	</table>
 
@@ -4010,6 +4016,7 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
 		<row><td>_95E20743E37B4B50AB82B65E5A771ABE.exe</td><td/><td>C:\Users\Andrzej\Desktop\IcmWeather\IcmWeather\obj\Release\ICM Weather.exe</td><td>0</td></row>
+		<row><td>_Built11_8E17E456377F439EAA9D77F0384BAB18.exe</td><td/><td>\ICM Weather.Primary output</td><td>0</td></row>
 		<row><td>_C2D3B4C50A40457FBD07BAA111AFE778.exe</td><td/><td>C:\Users\Andrzej\Desktop\IcmWeather\IcmWeather\obj\Release\ICM Weather.exe</td><td>0</td></row>
 		<row><td>_D1A62E8100D744F893713FBA32695FCF.exe</td><td/><td>C:\Users\Andrzej\Desktop\IcmWeather\IcmWeather\obj\Debug\ICM Weather.exe</td><td>0</td></row>
 		<row><td>_D9C1A82DCA1F4D5C8E489D51FF443520.exe</td><td/><td>C:\Users\Andrzej\Desktop\IcmWeather\IcmWeather\obj\Release\ICM Weather.exe</td><td>0</td></row>
@@ -4145,7 +4152,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{8222F634-D1A9-4F0C-852E-BD3F96E019C1}</td></row>
 		<row><td>ISUSSignature</td><td>{4E4F4AE5-E57F-4CB4-BFFA-F4038F768757}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewISToday,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewAppFiles,viewFeatureFiles,viewObjects,viewSystemSearch,viewSupportFiles,viewCustomActions,viewRelease,viewInstallScriptStd,viewShortcuts,viewRegistry,viewIniFiles,viewTextFiles,viewXMLConfig,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewUI,viewTextMessages</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewISToday,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpgradePaths,viewUpdateService,viewAppFiles,viewFeatureFiles,viewObjects,viewSystemSearch,viewSupportFiles,viewCustomActions,viewRelease,viewInstallScriptStd,viewShortcuts,viewRegistry,viewIniFiles,viewTextFiles,viewXMLConfig,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewUI,viewTextMessages,viewDesignPatches,viewDependencies</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4451,8 +4458,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col key="yes" def="s72">Property</col>
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
-		<row><td>ALLUSERS</td><td>1</td><td/></row>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
+		<row><td>ARPNOMODIFY</td><td>1</td><td/></row>
+		<row><td>ARPNOREPAIR</td><td>1</td><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
 		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING2##</td><td/></row>
@@ -4525,7 +4533,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]ICM Weather.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{B382B311-4BB9-4440-9EB6-D12D9BB7DCBC}</td><td/></row>
 		<row><td>ProductName</td><td>ICM Weather</td><td/></row>
-		<row><td>ProductVersion</td><td>1.0</td><td/></row>
+		<row><td>ProductVersion</td><td>1.2</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4604,6 +4612,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>ICM_Weather.Primary_output1</td><td/><td>openso_1_open_source</td><td>2</td></row>
 		<row><td>FileKey2</td><td>ICM_Weather.Primary_output1</td><td/><td>icmwea_1_icm_weather</td><td>2</td></row>
+		<row><td>_Built11</td><td>ICM_Weather.Primary_output1</td><td/><td>icm_weather</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4689,7 +4698,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>ICM_Weather.Primary_output1</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built11</td><td>icm_weather</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>ICM_Weather.Primary_output1</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built11_8E17E456377F439EAA9D77F0384BAB18.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

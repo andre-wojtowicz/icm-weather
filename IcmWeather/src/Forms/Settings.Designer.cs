@@ -232,7 +232,7 @@
             // 
             this.cbShowSidebar.AutoSize = true;
             this.cbShowSidebar.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbShowSidebar.Location = new System.Drawing.Point(42, 167);
+            this.cbShowSidebar.Location = new System.Drawing.Point(44, 167);
             this.cbShowSidebar.Name = "cbShowSidebar";
             this.cbShowSidebar.Size = new System.Drawing.Size(88, 17);
             this.cbShowSidebar.TabIndex = 11;

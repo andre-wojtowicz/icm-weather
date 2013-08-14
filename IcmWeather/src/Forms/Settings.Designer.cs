@@ -57,6 +57,7 @@
             this.cbModel.Location = new System.Drawing.Point(119, 34);
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(134, 21);
+            this.cbModel.Sorted = true;
             this.cbModel.TabIndex = 1;
             // 
             // buttonSave
@@ -128,6 +129,7 @@
             this.cbMeteogramLanguage.Location = new System.Drawing.Point(119, 167);
             this.cbMeteogramLanguage.Name = "cbMeteogramLanguage";
             this.cbMeteogramLanguage.Size = new System.Drawing.Size(133, 21);
+            this.cbMeteogramLanguage.Sorted = true;
             this.cbMeteogramLanguage.TabIndex = 7;
             // 
             // labelModel
@@ -203,6 +205,7 @@
             this.cbCity.Location = new System.Drawing.Point(119, 65);
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(134, 21);
+            this.cbCity.Sorted = true;
             this.cbCity.TabIndex = 2;
             // 
             // label1

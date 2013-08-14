@@ -45,6 +45,7 @@
             this.cbCity = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chbCustomLocation = new System.Windows.Forms.CheckBox();
+            this.cbShowSidebar = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRefresh)).BeginInit();
@@ -62,7 +63,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(12, 207);
+            this.buttonSave.Location = new System.Drawing.Point(12, 222);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 8;
@@ -126,10 +127,9 @@
             this.cbMeteogramLanguage.FormattingEnabled = true;
             this.cbMeteogramLanguage.Items.AddRange(new object[] {
             ""});
-            this.cbMeteogramLanguage.Location = new System.Drawing.Point(119, 167);
+            this.cbMeteogramLanguage.Location = new System.Drawing.Point(119, 190);
             this.cbMeteogramLanguage.Name = "cbMeteogramLanguage";
             this.cbMeteogramLanguage.Size = new System.Drawing.Size(133, 21);
-            this.cbMeteogramLanguage.Sorted = true;
             this.cbMeteogramLanguage.TabIndex = 7;
             // 
             // labelModel
@@ -171,7 +171,7 @@
             // labelLanguage
             // 
             this.labelLanguage.AutoSize = true;
-            this.labelLanguage.Location = new System.Drawing.Point(7, 170);
+            this.labelLanguage.Location = new System.Drawing.Point(7, 193);
             this.labelLanguage.Name = "labelLanguage";
             this.labelLanguage.Size = new System.Drawing.Size(107, 13);
             this.labelLanguage.TabIndex = 6;
@@ -190,7 +190,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(178, 207);
+            this.buttonCancel.Location = new System.Drawing.Point(178, 222);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 9;
@@ -205,7 +205,6 @@
             this.cbCity.Location = new System.Drawing.Point(119, 65);
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(134, 21);
-            this.cbCity.Sorted = true;
             this.cbCity.TabIndex = 2;
             // 
             // label1
@@ -229,12 +228,24 @@
             this.chbCustomLocation.UseVisualStyleBackColor = true;
             this.chbCustomLocation.CheckedChanged += new System.EventHandler(this.chbCustomLocation_CheckedChanged);
             // 
+            // cbShowSidebar
+            // 
+            this.cbShowSidebar.AutoSize = true;
+            this.cbShowSidebar.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbShowSidebar.Location = new System.Drawing.Point(42, 167);
+            this.cbShowSidebar.Name = "cbShowSidebar";
+            this.cbShowSidebar.Size = new System.Drawing.Size(88, 17);
+            this.cbShowSidebar.TabIndex = 11;
+            this.cbShowSidebar.Text = "Show legend";
+            this.cbShowSidebar.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 241);
+            this.ClientSize = new System.Drawing.Size(265, 257);
             this.ControlBox = false;
+            this.Controls.Add(this.cbShowSidebar);
             this.Controls.Add(this.chbCustomLocation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCity);
@@ -282,5 +293,6 @@
         private System.Windows.Forms.ComboBox cbCity;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chbCustomLocation;
+        private System.Windows.Forms.CheckBox cbShowSidebar;
     }
 }

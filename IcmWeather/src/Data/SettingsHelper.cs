@@ -19,6 +19,7 @@ namespace IcmWeather.Data
         public uint          ChosenX                 { get; private set; }
         public uint          ChosenY                 { get; private set; }
         public uint          ChosenRefreshRate       { get; private set; }
+        public bool          ChosenShowSidebar       { get; private set; }
         public string        ChosenMeteogramLanguage { get; private set; }
 
         public List<ForecastModel> AvailableModels    { get; private set; }
@@ -44,6 +45,7 @@ namespace IcmWeather.Data
         private const string INI_SETTINGS_KEY_X                  = "x";
         private const string INI_SETTINGS_KEY_Y                  = "y";
         private const string INI_SETTINGS_KEY_REFRESH_RATE       = "refresh_rate";
+        private const string INI_SETTINGS_KEY_SHOW_SIDEBAR       = "show_sidebar";
         private const string INI_SETTINGS_KEY_METEOGRAM_LANGUAGE = "meteogram_language";
 
         private IniFile inifile = new IniFile(Path.Combine(
@@ -121,20 +123,23 @@ namespace IcmWeather.Data
             ChosenX           = Convert.ToUInt32(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_X));
             ChosenY           = Convert.ToUInt32(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_Y));
             ChosenRefreshRate = Convert.ToUInt32(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_REFRESH_RATE));
+            ChosenShowSidebar = Convert.ToBoolean(inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_SHOW_SIDEBAR));
             ChosenMeteogramLanguage = inifile.IniReadValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_METEOGRAM_LANGUAGE);
         }
 
-        private void SaveSettings(string _model, string _city, uint _x, uint _y, uint _refreshRate, string _meteogramLanguage)
+        private void SaveSettings(string _model, string _city, uint _x, uint _y, uint _refreshRate, bool _showSidebar, string _meteogramLanguage)
         {
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_MODEL,              _model);
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_CITY,               _city);
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_X,                  _x.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_Y,                  _y.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_REFRESH_RATE,       _refreshRate.ToString());
+            inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_SHOW_SIDEBAR,       _showSidebar.ToString());
             inifile.IniWriteValue(INI_SETTINGS_SECTION, INI_SETTINGS_KEY_METEOGRAM_LANGUAGE, _meteogramLanguage);
         }
 
-        public void SettingsUpdated(ForecastModel _model, bool _customLocation, string _city, uint _x, uint _y, uint _refreshRate, string _meteogramLanguage)
+        public void SettingsUpdated(ForecastModel _model, bool _customLocation, string _city, uint _x, uint _y, uint _refreshRate,
+            bool _showSidebar, string _meteogramLanguage)
         {
             ChosenModel = _model;
 
@@ -148,8 +153,9 @@ namespace IcmWeather.Data
 
             ChosenRefreshRate = _refreshRate;
             ChosenMeteogramLanguage = _meteogramLanguage;
+            ChosenShowSidebar = _showSidebar;
 
-            SaveSettings(_model.Name, _city, _x, _y, _refreshRate, _meteogramLanguage);
+            SaveSettings(_model.Name, _city, _x, _y, _refreshRate, _showSidebar, _meteogramLanguage);
         }
     }
 }

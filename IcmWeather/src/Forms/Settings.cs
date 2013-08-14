@@ -25,7 +25,7 @@ namespace IcmWeather.Forms
         public event RefreshForecastDemandedHandler RefreshForecastDemanded;
 
         public delegate void SettingsUpdatedHandler(ForecastModel _model, bool _customLocation, string _city, 
-            uint _x, uint _y, uint _refreshRate, string _meteogramLanguage);
+            uint _x, uint _y, uint _refreshRate, bool _showSidebar, string _meteogramLanguage);
         public event SettingsUpdatedHandler SettingsUpdated;
 
         public Settings(SettingsHelper _settingsHelper, ForecastHelper _forecastHelper)
@@ -76,11 +76,23 @@ namespace IcmWeather.Forms
                 nudX.Enabled = false;
                 nudY.Enabled = false;
             }
+
+            cbShowSidebar.Checked = settingsHelper.ChosenShowSidebar;
         }
 
         private void LoadMeteogramLanguagesToCombobox(ForecastModel model)
         {
-            cbMeteogramLanguage.DataSource = model.Languages;
+            List<Tuple<string, string>> list = model.Languages;
+
+            list.Sort(
+                delegate(Tuple<string, string> firstPair,
+                    Tuple<string, string> nextPair)
+                {
+                    return firstPair.Item2.CompareTo(nextPair.Item2);
+                }
+            );
+
+            cbMeteogramLanguage.DataSource = list;
             cbMeteogramLanguage.ValueMember = "Item1";
             cbMeteogramLanguage.DisplayMember = "Item2";
 
@@ -97,8 +109,8 @@ namespace IcmWeather.Forms
             SettingsUpdatedHandler s_handler = SettingsUpdated;
             if (s_handler != null)
                 s_handler((ForecastModel)cbModel.SelectedItem, chbCustomLocation.Checked, 
-                    cbCity.Text, (uint)nudX.Value, (uint)nudY.Value, (uint)nudRefresh.Value, 
-                    (string)cbMeteogramLanguage.SelectedValue);
+                    cbCity.Text, (uint)nudX.Value, (uint)nudY.Value, (uint)nudRefresh.Value,
+                    cbShowSidebar.Checked, (string)cbMeteogramLanguage.SelectedValue);
             
             RefreshForecastDemandedHandler r_handler = RefreshForecastDemanded;
             if (r_handler != null)
@@ -136,7 +148,17 @@ namespace IcmWeather.Forms
             foreach (City city in model.Cities)
                 dict.Add((string)city.Names[(string)cbMeteogramLanguage.SelectedValue], city.Location);
 
-            cbCity.DataSource    =  new BindingSource(dict, null);
+            List<KeyValuePair<string, Tuple<ushort, ushort>>> list = dict.ToList();
+
+            list.Sort(
+                delegate(KeyValuePair<string, Tuple<ushort, ushort>> firstPair,
+                    KeyValuePair<string, Tuple<ushort, ushort>> nextPair)
+                {
+                    return firstPair.Key.CompareTo(nextPair.Key);
+                }
+            );
+
+            cbCity.DataSource = new BindingSource(list, null);
             cbCity.DisplayMember = "Key";
             cbCity.ValueMember   = "Value";
             cbCity.SelectedIndex = 0;
@@ -154,7 +176,7 @@ namespace IcmWeather.Forms
 
         private void cbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!chbCustomLocation.Checked && cbCity.Items != null)
+            if (!chbCustomLocation.Checked && cbCity.DataSource != null)
             {
                 System.Tuple<ushort, ushort> location = ((KeyValuePair<string, System.Tuple<ushort, ushort>>)cbCity.SelectedItem).Value;
                 nudX.Value = location.Item1;

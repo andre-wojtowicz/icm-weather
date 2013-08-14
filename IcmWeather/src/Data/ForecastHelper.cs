@@ -22,6 +22,7 @@ namespace IcmWeather.Data
 
         private enum DownloadStatus { OK, ERROR }
         private const int DOWNLOAD_RETRY_INTERVAL = 10; // seconds
+        private const int DOWNLOAD_METEOGRAM_HEIGHT_THRESHOLD = 200; // px
 
         private const string TITLEBAR_FONT_NAME = "Verdana";
         private const int    TITLEBAR_FONT_SIZE = 20;
@@ -153,6 +154,10 @@ namespace IcmWeather.Data
                 using (var stream = response.GetResponseStream())
                 {
                     Meteogram = Bitmap.FromStream(stream);
+
+                    // in case of getting image "Error loading /data/CURRENTDATE" (code 200 OK)
+                    if (Meteogram.Height < DOWNLOAD_METEOGRAM_HEIGHT_THRESHOLD)
+                        throw new System.Net.WebException("Meteogram image seems to be too small - possible error.");
                 }
             }
             catch (System.Net.WebException err)

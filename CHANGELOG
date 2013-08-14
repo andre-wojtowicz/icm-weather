@@ -1,6 +1,10 @@
 ### 1.2
+- added localizations
+- added legend
+- added downloading status icons
 - fixed bug with downloading meteogram when there's no connection
 - fixed left-click on notification icon
+- fixed scaling of a meteogram
 
 ### 1.1
 - fixed forecast form location depending on taskbar position and state

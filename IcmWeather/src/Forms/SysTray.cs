@@ -62,9 +62,9 @@ namespace IcmWeather.Forms
                 handler(sender, e);
         }
 
-        private void ShowForecast(object sender, EventArgs e)
+        private void ShowForecast(object sender, MouseEventArgs e)
         {
-            if (((MouseEventArgs)e).Button == MouseButtons.Left
+            if (e.Button == MouseButtons.Left
                 && Environment.TickCount - Forecast.LastClosingTick > SHOW_TIME_THRESHOLD
                 && Environment.TickCount - Forecast.LastOpeningTick > SHOW_TIME_THRESHOLD
                 && forecastForm == null)

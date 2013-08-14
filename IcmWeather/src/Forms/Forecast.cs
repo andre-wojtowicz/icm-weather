@@ -58,6 +58,28 @@ namespace IcmWeather.Forms
                 pbMeteogram.Invoke(new MethodInvoker(delegate { pbMeteogram.Image = forecastHelper.Meteogram; }));
             else
                 pbMeteogram.Image = forecastHelper.Meteogram;
+
+            // check if not too big for screen
+            int s_w = Screen.PrimaryScreen.WorkingArea.Width;
+            int s_h = Screen.PrimaryScreen.WorkingArea.Height;
+
+            if (pbMeteogram.Image.Width > s_w || pbMeteogram.Image.Height > s_h)
+                pbMeteogram.Image = ScaleImage(pbMeteogram.Image, s_w, s_h);
+        }
+
+        //http://stackoverflow.com/a/6501997
+        private static Image ScaleImage(Image image, int maxWidth, int maxHeight)
+        {
+            var ratioX = (double)maxWidth / image.Width;
+            var ratioY = (double)maxHeight / image.Height;
+            var ratio = Math.Min(ratioX, ratioY);
+
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+
+            var newImage = new Bitmap(newWidth, newHeight);
+            Graphics.FromImage(newImage).DrawImage(image, 0, 0, newWidth, newHeight);
+            return newImage;
         }
 
         private void PlaceNearNotifyIcon()

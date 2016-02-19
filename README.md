@@ -1,4 +1,4 @@
 ICM Weather
 ===========
 
-This program displays in the Windows notification area current weather forecast from http://www.meteo.pl
+See project website: https://andre-wojtowicz.github.io/icm-weather/

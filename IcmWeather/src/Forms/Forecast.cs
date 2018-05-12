@@ -23,19 +23,6 @@ namespace IcmWeather.Forms
             private set { _MeteogramAvailable = value; }
         }
 
-        private static int _LastClosingTick = 0;
-        public static int LastClosingTick
-        {
-            get { return _LastClosingTick; }
-            private set { _LastClosingTick = value; }
-        }
-        private static int _LastOpeningTick = 0;
-        public static int LastOpeningTick
-        {
-            get { return _LastOpeningTick; }
-            private set { _LastOpeningTick = value; }
-        }
-
         public Forecast(ForecastHelper _forecastHelper)
         {
             InitializeComponent();
@@ -134,8 +121,6 @@ namespace IcmWeather.Forms
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
-            LastOpeningTick = Environment.TickCount;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -143,7 +128,6 @@ namespace IcmWeather.Forms
             base.OnFormClosing(e);
 
             forecastHelper.MeteogramDownloaded -= LoadMeteogram;
-            LastClosingTick = Environment.TickCount;
         }
     }
 }

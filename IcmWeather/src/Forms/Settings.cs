@@ -22,7 +22,7 @@ namespace IcmWeather.Forms
         private SettingsHelper settingsHelper;
         private ForecastHelper forecastHelper;
 
-        private const string GITHUB_URL = "http://drzuo.github.io/icm_weather";
+        private const string GITHUB_URL = "https://github.com/andre-wojtowicz/icm-weather";
 
         public delegate void RefreshForecastDemandedHandler(object sender, EventArgs e);
         public event RefreshForecastDemandedHandler RefreshForecastDemanded;

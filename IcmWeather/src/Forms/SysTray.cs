@@ -29,7 +29,6 @@ namespace IcmWeather.Forms
         private SettingsHelper settingsHelper = new SettingsHelper();
 
         private const bool ALLOW_SHOW_DISPLAY = false;
-        private const int SHOW_TIME_THRESHOLD = 500; // ms
 
         public delegate void RefreshForecastDemandedHandler(object sender, EventArgs e);
         public event RefreshForecastDemandedHandler RefreshForecastDemanded;
@@ -65,8 +64,6 @@ namespace IcmWeather.Forms
         private void ShowForecast(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left
-                && Environment.TickCount - Forecast.LastClosingTick > SHOW_TIME_THRESHOLD
-                && Environment.TickCount - Forecast.LastOpeningTick > SHOW_TIME_THRESHOLD
                 && forecastForm == null)
             {
                 forecastForm = new Forecast(forecastHelper);
